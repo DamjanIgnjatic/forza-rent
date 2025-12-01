@@ -13,7 +13,7 @@ $link = get_field("link");
 ?>
 
 <div class="car-card">
-    <p><?php echo $name ?></p>
+    <p class="car-title"><?php echo $name ?></p>
     <p><?php echo $type ?></p>
     <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
     <p><?php echo $gearbox ?></p>

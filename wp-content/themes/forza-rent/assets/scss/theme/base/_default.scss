@@ -4,8 +4,8 @@ body.forzarent {
   min-height: 100vh;
   background: $background;
   color: $gray-900;
+  font-size: $font-size;
   font-family: $text-font;
-  font-size: 62.5%;
   font-weight: $font-weight-base;
   line-height: $line-height-base;
 
@@ -66,4 +66,8 @@ strong {
 
 ::-webkit-scrollbar-thumb:hover {
   background: $secondary;
+}
+
+html{
+  font-size: 62.5%;
 }
