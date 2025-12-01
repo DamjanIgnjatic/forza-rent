@@ -1,18 +1,18 @@
 {
-    "name": "acf/recommended",
-    "title": "Block - Recommended section",
-    "description": "Recommended section",
-    "style": "recommended-block-style",
-    "script": "recommended-block-script",
+    "name": "acf/hero-global",
+    "title": "Block - Hero global section",
+    "description": "Hero global section",
+    "style": "hero-global-block-style",
+    "script": "hero-global-block-script",
     "category": "design",
     "icon": "editor-paste-text",
     "apiVersion": 2,
     "keywords": [
-        "recommended"
+        "hero-global"
     ],
     "acf": {
         "mode": "preview",
-        "renderTemplate": "recommended.php",
+        "renderTemplate": "hero-global.php",
         "postTypes": [
             "post", 
             "page"

@@ -1,48 +1,26 @@
 <?php
-/* 
-* Block Name: Image
-* Post Type: page, post
-*/
+
+$faq = get_field('faq_global', 'option') ?: false;
+
 ?>
-<?php if (isset($block['data']['previewImage'])): ?>
-    <?php do_action('block_image', __FILE__); ?>
-<?php else: ?>
-    <?php
-    // Include helpers
-    include get_template_directory() . '/template-parts/base/block-helper.php';
+<section class="section faq-section-wrapper">
+    <div class="container">
+        <?php foreach ($faq as $row):
+            $question = $row['faq_question'];
+            $answer = $row['faq_answer'];
+        ?>
+            <div>
+                <?php if ($question): ?>
+                    <h4><?php echo $question ?></h4>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="icon-sm text-token-text-tertiary">
+                        <path d="M12.1338 5.94433C12.3919 5.77382 12.7434 5.80202 12.9707 6.02929C13.1979 6.25656 13.2261 6.60807 13.0556 6.8662L12.9707 6.9707L8.47067 11.4707C8.21097 11.7304 7.78896 11.7304 7.52926 11.4707L3.02926 6.9707L2.9443 6.8662C2.77379 6.60807 2.80199 6.25656 3.02926 6.02929C3.25653 5.80202 3.60804 5.77382 3.86617 5.94433L3.97067 6.02929L7.99996 10.0586L12.0293 6.02929L12.1338 5.94433Z"></path>
+                    </svg>
+                <?php endif; ?>
 
-    // Load values and assing defaults
-    $faq = get_field('faq') ?: false;
-    ?>
-    <section class="section faq-section-wrapper block <?php echo $className; ?>"
-        <?php if ($bgUrl): ?>
-        style="background-image: url('<?php echo $bgUrl; ?>');"
-        data-desktop-image="<?php echo $bgUrl; ?>"
-        <?php endif; ?>
-        <?php if ($mobileBgUrl): ?>
-        data-mobile-image="<?php echo $mobileBgUrl; ?>"
-        <?php endif; ?>
-        <?php if ($sectionId): ?>
-        id="<?php echo $sectionId; ?>"
-        <?php endif; ?>>
-        <div class="container">
-            <?php foreach ($faq as $row) :
-                $question = $row["question"];
-                $answer = $row["answer"];
-            ?>
-                <div>
-                    <?php if ($question): ?>
-                        <h4><?php echo  $question ?></h4>
-                    <?php endif; ?>
-
-                    <?php if ($answer): ?>
-                        <?php echo  $answer ?>
-                    <?php endif; ?>
-                </div>
-
-
-            <?php endforeach;  ?>
-
-        </div>
-    </section>
-<?php endif; ?>
+                <?php if ($answer): ?>
+                    <?php echo $answer; ?>
+                <?php endif; ?>
+            </div>
+        <?php endforeach; ?>
+    </div>
+</section>

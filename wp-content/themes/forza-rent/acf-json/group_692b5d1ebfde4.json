@@ -1,10 +1,10 @@
 {
-    "key": "group_6927658216f2c",
-    "title": "Block - hero-section",
+    "key": "group_692b5d1ebfde4",
+    "title": "Car",
     "fields": [
         {
-            "key": "field_6928bad77c1d4",
-            "label": "Hero Left",
+            "key": "field_692b5d1ffc483",
+            "label": "Car Information",
             "name": "",
             "aria-label": "",
             "type": "tab",
@@ -21,9 +21,9 @@
             "selected": 0
         },
         {
-            "key": "field_6928bb127c1d7",
-            "label": "Hero Left Title",
-            "name": "hero_left_title",
+            "key": "field_692b5dd0fc48d",
+            "label": "Name",
+            "name": "name",
             "aria-label": "",
             "type": "text",
             "instructions": "",
@@ -42,11 +42,11 @@
             "append": ""
         },
         {
-            "key": "field_6928bb5f7c1d8",
-            "label": "Hero Left Description",
-            "name": "hero_left_description",
+            "key": "field_692b5d65fc487",
+            "label": "Type",
+            "name": "type",
             "aria-label": "",
-            "type": "wysiwyg",
+            "type": "text",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -56,33 +56,16 @@
                 "id": ""
             },
             "default_value": "",
+            "maxlength": "",
             "allow_in_bindings": 0,
-            "tabs": "all",
-            "toolbar": "full",
-            "media_upload": 1,
-            "delay": 0
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
         },
         {
-            "key": "field_6928baec7c1d5",
-            "label": "Hero Left Link",
-            "name": "hero_left_link",
-            "aria-label": "",
-            "type": "link",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "array",
-            "allow_in_bindings": 0
-        },
-        {
-            "key": "field_6928bafd7c1d6",
-            "label": "Hero Left Background Image",
-            "name": "hero_left_background_image",
+            "key": "field_692b5d3cfc484",
+            "label": "Image",
+            "name": "image",
             "aria-label": "",
             "type": "image",
             "instructions": "",
@@ -106,27 +89,9 @@
             "preview_size": "medium"
         },
         {
-            "key": "field_6928bb707c1d9",
-            "label": "Hero Right",
-            "name": "",
-            "aria-label": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "top",
-            "endpoint": 0,
-            "selected": 0
-        },
-        {
-            "key": "field_6928bc227c1da",
-            "label": "Hero Right Title",
-            "name": "hero_right_title",
+            "key": "field_692b5d4afc485",
+            "label": "Gearbox",
+            "name": "gearbox",
             "aria-label": "",
             "type": "text",
             "instructions": "",
@@ -145,11 +110,11 @@
             "append": ""
         },
         {
-            "key": "field_6928bc367c1db",
-            "label": "Hero Right Description",
-            "name": "hero_right_description",
+            "key": "field_692b5d5ffc486",
+            "label": "Fuel Type",
+            "name": "fuel_type",
             "aria-label": "",
-            "type": "wysiwyg",
+            "type": "text",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -159,18 +124,18 @@
                 "id": ""
             },
             "default_value": "",
+            "maxlength": "",
             "allow_in_bindings": 0,
-            "tabs": "all",
-            "toolbar": "full",
-            "media_upload": 1,
-            "delay": 0
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
         },
         {
-            "key": "field_6928bc437c1dc",
-            "label": "Hero Right Link",
-            "name": "hero_right_link",
+            "key": "field_692b5d75fc488",
+            "label": "Capacity",
+            "name": "capacity",
             "aria-label": "",
-            "type": "link",
+            "type": "text",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -179,15 +144,19 @@
                 "class": "",
                 "id": ""
             },
-            "return_format": "array",
-            "allow_in_bindings": 0
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
         },
         {
-            "key": "field_6928bc657c1dd",
-            "label": "Hero Right Background",
-            "name": "hero_right_background",
+            "key": "field_692b5db0fc48a",
+            "label": "Price",
+            "name": "price",
             "aria-label": "",
-            "type": "image",
+            "type": "text",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -196,25 +165,62 @@
                 "class": "",
                 "id": ""
             },
-            "return_format": "array",
-            "library": "all",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": "",
+            "default_value": "",
+            "maxlength": "",
             "allow_in_bindings": 0,
-            "preview_size": "medium"
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_692b5db7fc48b",
+            "label": "Discount Price",
+            "name": "discount_price",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_692b5dc1fc48c",
+            "label": "Link",
+            "name": "link",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
         }
     ],
     "location": [
         [
             {
-                "param": "block",
+                "param": "post_type",
                 "operator": "==",
-                "value": "acf\/hero-section"
+                "value": "cars"
             }
         ]
     ],
@@ -228,5 +234,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1764617829
+    "modified": 1764449764
 }

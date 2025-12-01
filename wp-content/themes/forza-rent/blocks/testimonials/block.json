@@ -1,16 +1,16 @@
 {
-  "name": "acf/faq",
-  "title": "Block - FAQ section",
-  "description": "FAQ section",
-  "style": "faq-block-style",
-  "script": "faq-block-script",
+  "name": "acf/testimonials",
+  "title": "Block - Testimonials section",
+  "description": "Testimonials section",
+  "style": "testimonials-block-style",
+  "script": "testimonials-block-script",
   "category": "design",
   "icon": "editor-paste-text",
   "apiVersion": 2,
-  "keywords": ["faq"],
+  "keywords": ["testimonials"],
   "acf": {
     "mode": "preview",
-    "renderTemplate": "faq.php",
+    "renderTemplate": "testimonials.php",
     "postTypes": ["post", "page"]
   },
   "styles": [],
