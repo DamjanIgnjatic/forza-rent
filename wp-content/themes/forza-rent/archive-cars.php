@@ -1,10 +1,13 @@
-<?php get_header(); ?>
 <main class="cars">
-    <div class="container">
+    <div class="sidebar">
+        <?php get_template_part('template-parts/sidebar'); ?>
         <div>
-            <?php while (have_posts()) : the_post(); ?>
-                <?php get_template_part('template-parts/cars/car'); ?>
-            <?php endwhile; ?>
+            <?php get_header(); ?>
+            <div>
+                <?php while (have_posts()) : the_post(); ?>
+                    <?php get_template_part('template-parts/cars/car'); ?>
+                <?php endwhile; ?>
+            </div>
         </div>
     </div>
 </main>
