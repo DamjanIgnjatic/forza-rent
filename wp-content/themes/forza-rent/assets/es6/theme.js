@@ -221,4 +221,37 @@ document.addEventListener('DOMContentLoaded', function() {
 			});
 		});
 	}
+
+	console.log('FILTER CARS: DOMContentLoaded callback radi');
+
+	//FILTER CARS
+	const filterButtons = document.querySelectorAll('.car-category');
+    const cars = document.querySelectorAll('.grid .car-card');
+
+    if (!filterButtons.length || !cars.length) {
+        return;
+    }
+
+    filterButtons.forEach(function (btn) {
+		console.log("11111111111111")
+        btn.addEventListener('click', function () {
+					console.log("11111111111111")
+            filterButtons.forEach(function (b) {
+                b.classList.remove('active');
+            });
+            btn.classList.add('active');
+
+            const selected = (btn.getAttribute('data-type') || '').toLowerCase();
+
+            cars.forEach(function (car) {
+                const carType = (car.getAttribute('data-type') || '').toLowerCase();
+
+                if (selected === 'all' || carType === selected) {
+                    car.style.display = '';
+                } else {
+                    car.style.display = 'none';
+                }
+            });
+        });
+    });
 });
