@@ -26,11 +26,8 @@ hr {
 
 a {
   transition: color ease-in-out 240ms;
+  text-decoration: none;
   color: $primary;
-
-  &:hover {
-    color: $primary-hover;
-  }
 }
 
 b,

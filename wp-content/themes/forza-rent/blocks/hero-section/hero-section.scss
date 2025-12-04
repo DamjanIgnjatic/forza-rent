@@ -3,4 +3,63 @@
 @import "../../assets/scss/theme/base/mixins";
 
 .hero-section-section-wrapper {
+  padding: 0 !important;
+  margin: 6rem 0;
+
+  @media screen and (max-width: $lg) {
+    margin: 3rem 0;
+  }
+
+  &--box {
+    display: flex !important;
+    justify-content: space-between;
+    gap: 2rem;
+    @media screen and (max-width: $lg) {
+      flex-direction: column;
+      gap: 3rem;
+    }
+  }
+
+  .column {
+    background-position: center;
+    background-size: cover;
+    background-position: center;
+    max-width: 64rem;
+    width: 100%;
+    padding: 2.4rem 2.4rem 12rem 2.4rem;
+    border-radius: 1rem;
+
+    @media screen and (max-width: $lg) {
+      max-width: 100%;
+    }
+
+    div {
+      max-width: 28.2rem;
+      width: 100%;
+
+      @media screen and (max-width: $lg) {
+        max-width: 100%;
+      }
+    }
+  }
+
+  h2 {
+    color: $white;
+  }
+
+  p {
+    line-height: 1.5;
+    letter-spacing: -0.32px;
+    color: $white;
+    margin-bottom: 2rem;
+    font-weight: 500;
+  }
+
+  .left {
+    background-color: $info;
+  }
+
+  .right {
+    background-color: $primary;
+  }
 }

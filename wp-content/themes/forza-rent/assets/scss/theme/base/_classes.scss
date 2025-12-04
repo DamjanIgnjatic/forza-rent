@@ -1,0 +1,30 @@
+.btn-forza {
+  color: $white;
+  padding: 1rem 0;
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: -0.32px;
+  max-width: 12rem;
+  width: 100%;
+  display: inline-block;
+  text-align: center;
+  border-radius: 4px;
+  text-decoration: none !important;
+
+  &.primary {
+    background-color: $primary;
+
+    &:hover {
+      color: $info;
+    }
+  }
+
+  &.secondary {
+    background-color: $info;
+
+    &:hover {
+      color: $primary;
+    }
+  }
+}

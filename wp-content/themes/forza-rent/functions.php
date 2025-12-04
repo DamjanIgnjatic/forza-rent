@@ -44,7 +44,7 @@ use BoldizArt\WpTheme\{
     SocialMediaIcons,
     CustomAdminLogin,
     IframeUrl,
-    Captcha,
+    // Captcha,
 
     // ThemeSwitcher,
 };
@@ -122,7 +122,7 @@ $customAdminLogin = new CustomAdminLogin();
 $iframeUrl = new IframeUrl();
 
 // Include captcha
-$captcha = new Captcha();
+// $captcha = new Captcha();
 
 // ======================================
 // Static functions - Do not remove them

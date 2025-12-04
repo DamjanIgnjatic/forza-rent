@@ -25,7 +25,7 @@ class Scripts
             \add_filter('script_loader_tag', [$this, 'modifyScripts']);
 
             // Remove jQuery
-            \add_action('wp_enqueue_scripts', [$this, 'removejQuery']);
+            // \add_action('wp_enqueue_scripts', [$this, 'removejQuery']);
             \add_action('wp_default_scripts', [$this, 'dequeuejQueryMigrate']);
         }
     }

@@ -1,1 +1,1 @@
-document.addEventListener("DOMContentLoaded",function(){});
+document.addEventListener("DOMContentLoaded",function(){let t=document.querySelectorAll(".faq-section-wrapper--box-item");t.forEach(e=>{e.addEventListener("click",()=>{t.forEach(e=>{e.classList.remove("active")}),e.classList.add("active")})})});

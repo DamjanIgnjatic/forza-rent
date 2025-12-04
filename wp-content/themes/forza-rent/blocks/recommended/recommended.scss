@@ -1,0 +1,43 @@
+// Variables
+@import "../../assets/scss/theme/variables/block-index";
+@import "../../assets/scss/theme/base/mixins";
+
+.recommended-section-wrapper {
+  margin: 6rem 0;
+  padding: 0 !important;
+
+  @media screen and (max-width: $lg) {
+    margin: 3rem 0;
+  }
+
+  &--title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2.6rem;
+
+    h2 {
+      margin: 0;
+    }
+
+    a {
+      font-weight: 600;
+      line-height: 2.4rem;
+      letter-spacing: -0.32px;
+      color: $primary;
+      max-width: unset;
+      width: unset;
+      transition: all 240ms ease-in-out;
+
+      &:hover {
+        color: $primary-hover;
+      }
+    }
+  }
+
+  &--cars {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    gap: 2rem;
+  }
+}

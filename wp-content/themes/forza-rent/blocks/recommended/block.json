@@ -1,0 +1,42 @@
+{
+    "name": "acf/recommended",
+    "title": "Block - Recommended section",
+    "description": "Recommended section",
+    "style": "recommended-block-style",
+    "script": "recommended-block-script",
+    "category": "design",
+    "icon": "editor-paste-text",
+    "apiVersion": 2,
+    "keywords": [
+        "recommended"
+    ],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "recommended.php",
+        "postTypes": [
+            "post", 
+            "page"
+        ]
+    },
+    "styles": [],
+    "supports": {
+        "align": "full",
+        "anchor": false,
+        "alignContent": false,
+        "color": {
+            "text": false,
+            "background": true,
+            "link": false
+        },
+        "alignText": false,
+        "fullHeight": false
+    },
+    "attributes": {},
+    "example": {
+        "attributes": {
+            "data": {
+                "previewImage" : true
+            }
+        }
+    }
+}
