@@ -3,4 +3,53 @@
 @import "../../assets/scss/theme/base/mixins";
 
 .about-section-wrapper {
+  padding: 0 !important;
+  margin: 6rem 0;
+  @media screen and (max-width: $lg) {
+    margin: 3rem 0;
+  }
+
+  &--box {
+    display: flex;
+    gap: 2rem;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $white;
+    padding: 2rem;
+    border-radius: 1.2rem;
+
+    @media screen and (max-width: $lg) {
+      flex-direction: column-reverse;
+    }
+
+    div {
+      width: 50%;
+
+      @media screen and (max-width: $lg) {
+        width: 100%;
+      }
+
+      h2 {
+        font-weight: 600;
+        margin-bottom: 2rem;
+      }
+
+      p {
+        color: $gray-500;
+        margin-bottom: 2rem;
+        line-height: 2;
+      }
+
+      img {
+        width: 100%;
+        display: block;
+        object-fit: cover;
+      }
+
+      &:last-child {
+        border-radius: 1.2rem;
+        overflow: hidden;
+      }
+    }
+  }
 }

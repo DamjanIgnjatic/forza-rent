@@ -10,7 +10,6 @@
     <?php
     // Include helpers
     include get_template_directory() . '/template-parts/base/block-helper.php';
-
     // Load values and assing defaults
     $sponsors = get_field("sponsors");
     ?>
@@ -26,18 +25,26 @@
         id="<?php echo $sectionId; ?>"
         <?php endif; ?>>
         <div class="container">
-            <div>
-                <?php foreach ($sponsors as $row) :
-                    $sponsor_image = $row['sponsor_image'] ?? '';
-                ?>
-                    <?php
-                    if (!empty($sponsor_image)): ?>
-                        <div>
-                            <img src="<?php echo esc_url($sponsor_image['url']); ?>" alt="<?php echo esc_attr($sponsor_image['alt']); ?>" />
-                        </div>
-                    <?php endif; ?>
+            <div class="sponsors-marquee">
+                <div class="track">
+                    <?php foreach ($sponsors as $row): ?>
+                        <?php $img = $row['sponsor_image'] ?? null; ?>
+                        <?php if ($img): ?>
+                            <div class="item">
+                                <img src="<?php echo esc_url($img['url']); ?>" alt="">
+                            </div>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
 
-                <?php endforeach;  ?>
+                    <?php foreach ($sponsors as $row): ?>
+                        <?php $img = $row['sponsor_image'] ?? null; ?>
+                        <?php if ($img): ?>
+                            <div class="item">
+                                <img src="<?php echo esc_url($img['url']); ?>" alt="">
+                            </div>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
+                </div>
             </div>
         </div>
     </section>

@@ -184,8 +184,8 @@
         },
         {
             "key": "field_6928bc657c1dd",
-            "label": "Hero Right Background",
-            "name": "hero_right_background",
+            "label": "Hero Right Background Image",
+            "name": "hero_right_background_image",
             "aria-label": "",
             "type": "image",
             "instructions": "",
@@ -228,5 +228,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1764617829
+    "modified": 1764706375
 }

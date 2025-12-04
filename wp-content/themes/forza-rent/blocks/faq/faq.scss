@@ -3,4 +3,59 @@
 @import "../../assets/scss/theme/base/mixins";
 
 .faq-section-wrapper {
+  padding: 0 !important;
+  margin: 6rem 0;
+  @media screen and (max-width: $lg) {
+    margin: 3rem 0;
+  }
+  &--box {
+    cursor: pointer;
+    position: relative;
+    color: $white;
+    background-color: $primary;
+    padding: 2.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    border-radius: 1.2rem;
+    margin-bottom: 2rem;
+
+    &-item {
+      .question {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        align-items: center;
+
+        h3 {
+          margin: 0;
+          color: $white;
+        }
+      }
+
+      &.active {
+        .answer {
+          position: relative;
+          opacity: 1;
+          pointer-events: auto;
+          visibility: visible;
+          padding-top: 2rem;
+        }
+      }
+    }
+  }
+
+  .answer {
+    position: absolute;
+    top: 0;
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+    transition: all 240ms ease-in-out;
+    p {
+      margin: 0;
+      line-height: 1.5;
+      font-weight: 500;
+    }
+  }
 }
