@@ -12,6 +12,7 @@
             <p class="car-category">Motorcicles</p>
             <p class="car-category">Quad</p>
         </div>
+
         <div class="advanced-filters">
             <div class="filter-group">
                 <label for="fuelFilter">Fuel type</label>
@@ -23,6 +24,7 @@
                     <option value="hybrid">Hybrid</option>
                 </select>
             </div>
+
             <div class="filter-group">
                 <label for="gearboxFilter">Gearbox</label>
                 <select id="gearboxFilter">
@@ -31,6 +33,7 @@
                     <option value="automatic">Automatic</option>
                 </select>
             </div>
+
             <div class="filter-group price-group">
                 <label for="priceRange">Price</label>
                 <div class="price-slider">
@@ -43,6 +46,7 @@
                     <span class="price-label">Max. $200.00</span>
                 </div>
             </div>
+
         </div>
         <div class="grid">
             <?php
@@ -52,6 +56,7 @@
                 'orderby'        => 'title',
                 'order'          => 'ASC',
             ]);
+
             if ($cars_query->have_posts()) :
                 while ($cars_query->have_posts()) : $cars_query->the_post();
                     get_template_part('template-parts/cars/car');
