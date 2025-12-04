@@ -1,4 +1,3 @@
-<?php get_header(); ?>
 <main class="cars">
     <div class="container">
         <h1>All cars</h1>

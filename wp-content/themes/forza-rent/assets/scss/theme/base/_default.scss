@@ -1,7 +1,7 @@
 // Defaults
 html,
 body.forzarent {
-  min-height: 100vh;
+  height: 100vh;
   background: $background;
   color: $gray-900;
   font-size: $font-size;
@@ -68,6 +68,6 @@ strong {
   background: $secondary;
 }
 
-html{
+html {
   font-size: 62.5%;
 }
