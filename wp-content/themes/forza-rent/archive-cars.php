@@ -1,16 +1,54 @@
+<?php
+$all_cars = new WP_Query([
+    'post_type'      => 'cars',
+    'posts_per_page' => -1,
+    'fields'         => 'ids'
+]);
+
+$min_price = PHP_INT_MAX;
+$max_price = 0;
+
+$car_categories = get_terms([
+    'taxonomy' => 'car-model',
+    'hide_empty' => false
+]);
+
+$fuel_type = get_terms([
+    'taxonomy' => 'fuel-type',
+    'hide_empty' => false
+]);
+
+$gearbox_type = get_terms([
+    'taxonomy' => 'gearbox-type',
+    'hide_empty' => false
+]);
+
+foreach ($all_cars->posts as $car_id) {
+    $price          = get_field('price', $car_id);
+    $discount_price = get_field('discount_price', $car_id);
+    $final_price    = $price ?: $discount_price;
+
+    if ($final_price < $min_price) {
+        $min_price = $final_price;
+    }
+    if ($final_price > $max_price) {
+        $max_price = $final_price;
+    }
+}
+?>
+
+
 <?php get_header(); ?>
 <main class="cars">
     <div class="container">
-        <h1>All cars</h1>
         <div class="class-picker">
-            <p class="car-category active">All</p>
-            <p class="car-category">Economy</p>
-            <p class="car-category">Suv</p>
-            <p class="car-category">Sport</p>
-            <p class="car-category">Luxary</p>
-            <p class="car-category">Van</p>
-            <p class="car-category">Motorcicles</p>
-            <p class="car-category">Quad</p>
+            <p class="car-category active" data-filter="all">All</p>
+
+            <?php foreach ($car_categories as $category): ?>
+                <p class="car-category" data-filter="<?php echo esc_attr($category->slug); ?>">
+                    <?php echo esc_html($category->name); ?>
+                </p>
+            <?php endforeach; ?>
         </div>
 
         <div class="advanced-filters">
@@ -18,10 +56,11 @@
                 <label for="fuelFilter">Fuel type</label>
                 <select id="fuelFilter">
                     <option value="">Any</option>
-                    <option value="petrol">Petrol</option>
-                    <option value="diesel">Diesel</option>
-                    <option value="electric">Electric</option>
-                    <option value="hybrid">Hybrid</option>
+                    <?php foreach ($fuel_type as $fuel): ?>
+                        <option value="<?php echo esc_attr($fuel->slug); ?>">
+                            <?php echo esc_html($fuel->name); ?>
+                        </option>
+                    <?php endforeach; ?>
                 </select>
             </div>
 
@@ -29,8 +68,11 @@
                 <label for="gearboxFilter">Gearbox</label>
                 <select id="gearboxFilter">
                     <option value="">Any</option>
-                    <option value="manual">Manual</option>
-                    <option value="automatic">Automatic</option>
+                    <?php foreach ($gearbox_type as $gearbox): ?>
+                        <option value="<?php echo esc_attr($gearbox->slug); ?>">
+                            <?php echo esc_html($gearbox->name); ?>
+                        </option>
+                    <?php endforeach; ?>
                 </select>
             </div>
 
@@ -39,11 +81,13 @@
                 <div class="price-slider">
                     <input type="range"
                         id="priceRange"
-                        min="0"
-                        max="200"
-                        step="5"
-                        value="200" />
-                    <span class="price-label">Max. $200.00</span>
+                        min="<?php echo esc_attr($min_price); ?>"
+                        max="<?php echo esc_attr($max_price); ?>"
+                        step="10"
+                        value="<?php echo esc_attr($min_price); ?>" />
+                    <span class="price-label"
+                        data-min="<?php echo $min_price; ?>"
+                        data-max="<?php echo $max_price; ?>">Max: €<?php echo $max_price; ?></span>
                 </div>
             </div>
 
@@ -68,7 +112,7 @@
             ?>
         </div>
         <div class="cars-actions">
-            <button id="loadMoreCars" class="load-more-btn">Show more</button>
+            <button id="loadMoreCars" class="btn-forza primary">Show more</button>
         </div>
     </div>
 </main>
