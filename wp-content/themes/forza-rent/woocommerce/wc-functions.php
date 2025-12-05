@@ -8,7 +8,8 @@
 
 
 // Woocommerce Templates
-function startertheme_add_woocommerce_support() {
+function startertheme_add_woocommerce_support()
+{
   add_theme_support('woocommerce');
 }
 
@@ -19,7 +20,8 @@ add_action('after_setup_theme', 'startertheme_add_woocommerce_support');
 // Woocommerce Lightbox
 add_action('after_setup_theme', 'startertheme_wc_lightbox');
 
-function startertheme_wc_lightbox() {
+function startertheme_wc_lightbox()
+{
   add_theme_support('wc-product-gallery-zoom');
   add_theme_support('wc-product-gallery-lightbox');
   add_theme_support('wc-product-gallery-slider');
@@ -30,7 +32,8 @@ function startertheme_wc_lightbox() {
 // Register Ajax Cart
 if (!function_exists('register_ajax_cart')) :
 
-  function register_ajax_cart() {
+  function register_ajax_cart()
+  {
     require_once('ajax-cart/ajax-add-to-cart.php');
   }
 
@@ -41,8 +44,9 @@ endif;
 
 
 //Scripts and Styles
-function wc_scripts() {
-  
+function wc_scripts()
+{
+
   // Enable fragments script (disabled in WooCommerce 7.8.0 if mini-cart widget is not in a widget position)
   // See https://developer.woocommerce.com/2023/05/24/woocommerce-7-8-beta-1-released/
   wp_enqueue_script('wc-cart-fragments');
@@ -64,7 +68,8 @@ add_action('wp_enqueue_scripts', 'wc_scripts');
 
 // Minicart Header
 if (!function_exists('bs_mini_cart')) :
-  function bs_mini_cart($fragments) {
+  function bs_mini_cart($fragments)
+  {
 
     ob_start();
     $count = WC()->cart->cart_contents_count; ?>
@@ -74,7 +79,7 @@ if (!function_exists('bs_mini_cart')) :
       <?php } ?>
     </span>
 
-    <?php
+  <?php
     $fragments['span.cart-content'] = ob_get_clean();
 
     return $fragments;
@@ -89,7 +94,8 @@ endif;
 // WooCommerce Breadcrumb
 if (!function_exists('bs_woocommerce_breadcrumbs')) :
   add_filter('woocommerce_breadcrumb_defaults', 'bs_woocommerce_breadcrumbs');
-  function bs_woocommerce_breadcrumbs() {
+  function bs_woocommerce_breadcrumbs()
+  {
     return array(
       'delimiter'   => '',
       'wrap_before' => "<nav aria-label='breadcrumb' class='wc-breadcrumb breadcrumb-scroller mb-4 mt-2 py-2 px-3 bg-body-tertiary rounded'>
@@ -118,7 +124,8 @@ remove_action('woocommerce_cart_collaterals', 'woocommerce_cross_sell_display');
 // Remove CSS and/or JS for Select2 used by WooCommerce, see https://gist.github.com/Willem-Siebe/c6d798ccba249d5bf080.
 add_action('wp_enqueue_scripts', 'wsis_dequeue_stylesandscripts_select2', 100);
 
-function wsis_dequeue_stylesandscripts_select2() {
+function wsis_dequeue_stylesandscripts_select2()
+{
   if (class_exists('woocommerce')) {
     wp_dequeue_style('selectWoo');
     wp_deregister_style('selectWoo');
@@ -135,11 +142,13 @@ function wsis_dequeue_stylesandscripts_select2() {
 remove_action('woocommerce_widget_shopping_cart_buttons', 'woocommerce_widget_shopping_cart_button_view_cart', 10);
 remove_action('woocommerce_widget_shopping_cart_buttons', 'woocommerce_widget_shopping_cart_proceed_to_checkout', 20);
 
-function my_woocommerce_widget_shopping_cart_button_view_cart() {
+function my_woocommerce_widget_shopping_cart_button_view_cart()
+{
   echo '<a href="' . esc_url(wc_get_cart_url()) . '" class="btn btn-outline-primary d-block mb-2">' . esc_html__('View cart', 'woocommerce') . '</a>';
 }
 
-function my_woocommerce_widget_shopping_cart_proceed_to_checkout() {
+function my_woocommerce_widget_shopping_cart_proceed_to_checkout()
+{
   echo '<a href="' . esc_url(wc_get_checkout_url()) . '" class="btn btn-primary d-block">' . esc_html__('Checkout', 'woocommerce') . '</a>';
 }
 
@@ -151,7 +160,8 @@ add_action('woocommerce_widget_shopping_cart_buttons', 'my_woocommerce_widget_sh
 // Add card-img-top class to product loop
 remove_action('woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_thumbnail', 10);
 add_action('woocommerce_before_shop_loop_item_title', 'custom_loop_product_thumbnail', 10);
-function custom_loop_product_thumbnail() {
+function custom_loop_product_thumbnail()
+{
   global $product;
   $size = 'woocommerce_thumbnail';
   $code = 'class=card-img-top';
@@ -166,8 +176,9 @@ function custom_loop_product_thumbnail() {
 
 // Category loop button and badge
 if (!function_exists('woocommerce_template_loop_category_title')) :
-  function woocommerce_template_loop_category_title($category) {
-    ?>
+  function woocommerce_template_loop_category_title($category)
+  {
+  ?>
     <h2 class="woocommerce-loop-category__title btn btn-primary w-100 mb-0">
       <?php
       echo $category->name;
@@ -177,7 +188,7 @@ if (!function_exists('woocommerce_template_loop_category_title')) :
       }
       ?>
     </h2>
-    <?php
+<?php
   }
 endif;
 // Category loop button and badge End
@@ -191,7 +202,8 @@ endif;
  *
  * @return string The corrected terms.
  */
-function startertheme_wc_get_corrected_terms($html) {
+function startertheme_wc_get_corrected_terms($html)
+{
   $doc = new DOMDocument();
   if (!empty($html) && $doc->loadHtml($html)) {
     $documentElement       = $doc->documentElement; // Won't find the right child-notes without that line. ads html and body tag as a wrapper
@@ -231,7 +243,8 @@ function startertheme_wc_get_corrected_terms($html) {
  *
  * @return string The output of the hook.
  */
-function startertheme_wc_capture_hook_output($hookName) {
+function startertheme_wc_capture_hook_output($hookName)
+{
   ob_start();
   do_action($hookName);
   $hookContent = ob_get_contents();
@@ -245,7 +258,8 @@ function startertheme_wc_capture_hook_output($hookName) {
 
 // Redirect to my-account if offcanvas login failed
 add_action('woocommerce_login_failed', 'startertheme_redirect_on_login_failed', 10, 0);
-function startertheme_redirect_on_login_failed() {
+function startertheme_redirect_on_login_failed()
+{
   // Logout user doesn't have session, we need this to display notices
   if (!WC()->session->has_session()) {
     WC()->session->set_customer_session_cookie(true);
@@ -259,7 +273,8 @@ function startertheme_redirect_on_login_failed() {
 
 // Redirect to home on logout
 add_action('wp_logout', 'startertheme_redirect_after_logout');
-function startertheme_redirect_after_logout() {
+function startertheme_redirect_after_logout()
+{
   wp_redirect(home_url());
   exit();
 }
@@ -269,7 +284,8 @@ function startertheme_redirect_after_logout() {
 
 // Redirect to my-account after (un)sucessful registration
 add_action('wp_loaded', 'startertheme_redirect_after_registration', 999);
-function startertheme_redirect_after_registration() {
+function startertheme_redirect_after_registration()
+{
   $nonce_value = isset($_POST['_wpnonce']) ? wp_unslash($_POST['_wpnonce']) : ''; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
   $nonce_value = isset($_POST['woocommerce-register-nonce']) ? wp_unslash($_POST['woocommerce-register-nonce']) : $nonce_value; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
   if (isset($_POST['register'], $_POST['email']) && wp_verify_nonce($nonce_value, 'woocommerce-register')) {
@@ -286,13 +302,15 @@ function startertheme_redirect_after_registration() {
 // Add -/+ buttons to quantity-input.php
 add_action('woocommerce_before_quantity_input_field', 'bs_quantity_minus_button');
 
-function bs_quantity_minus_button() {
+function bs_quantity_minus_button()
+{
   echo '<button type="button" class="minus input-group-text" >-</button>';
 }
 
 add_action('woocommerce_after_quantity_input_field', 'bs_quantity_plus_button');
 
-function bs_quantity_plus_button() {
+function bs_quantity_plus_button()
+{
   echo '<button type="button" class="plus input-group-text" >+</button>';
 }
 
