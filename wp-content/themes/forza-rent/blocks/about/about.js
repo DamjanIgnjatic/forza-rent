@@ -1,148 +1,154 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener("DOMContentLoaded", function () {
+  // === CAR FILTERS ===
+  const filterButtons = document.querySelectorAll(".car-category");
+  const cars = document.querySelectorAll(".grid .car-card");
 
-	// === CAR FILTERS ===
-	const filterButtons = document.querySelectorAll('.car-category');
-	const cars          = document.querySelectorAll('.grid .car-card');
+  const fuelSelect = document.getElementById("fuelFilter");
+  const gearboxSelect = document.getElementById("gearboxFilter");
+  const priceRange = document.getElementById("priceRange");
+  const priceLabel = document.querySelector(".price-label");
+  let priceFilterActive = false;
 
-	const fuelSelect    = document.getElementById('fuelFilter');
-	const gearboxSelect = document.getElementById('gearboxFilter');
-	const priceRange    = document.getElementById('priceRange');
-	const priceLabel    = document.querySelector('.price-label');
+  const loadMoreBtn = document.getElementById("loadMoreCars");
+  let visibleCount = 12;
 
-	const loadMoreBtn   = document.getElementById('loadMoreCars');
-	let visibleCount    = 12;
+  if (!cars.length) return;
 
-	if (!cars.length) return;
+  function normalizeGearbox(value) {
+    const v = (value || "").toLowerCase().trim();
 
-	function normalizeGearbox(value) {
-	const v = (value || '').toLowerCase().trim();
+    if (["auto", "automatic", "automat", "automatika"].includes(v)) {
+      return "automatic";
+    }
 
-	if (['auto', 'automatic', 'automat', 'automatika'].includes(v)) {
-		return 'automatic';
-	}
+    if (["manual", "man", "rucni", "ručni"].includes(v)) {
+      return "manual";
+    }
 
-	if (['manual', 'man', 'rucni', 'ručni'].includes(v)) {
-		return 'manual';
-	}
+    return v;
+  }
 
-	return v;
-}
+  function applyFilters(resetVisible = false) {
+    if (resetVisible) {
+      visibleCount = 12;
+    }
 
+    const activeTypeBtn = document.querySelector(".car-category.active");
+    const selectedType = activeTypeBtn ? activeTypeBtn.dataset.filter : "all";
 
-	function applyFilters(resetVisible = false) {
-		if (resetVisible) {
-			visibleCount = 12;
-		}
+    const selectedFuel = (fuelSelect?.value || "").toLowerCase().trim();
+    const selectedGearbox = normalizeGearbox(gearboxSelect?.value || "");
 
-		const activeTypeBtn = document.querySelector('.car-category.active');
-		const selectedType = activeTypeBtn
-			? activeTypeBtn.textContent.toLowerCase().trim()
-			: 'all';
+    const maxPrice =
+      priceRange && priceRange.value !== ""
+        ? parseFloat(priceRange.value)
+        : null;
 
-		const selectedFuel    = (fuelSelect?.value || '').toLowerCase().trim();
-		const selectedGearbox = normalizeGearbox(gearboxSelect?.value || '');
+    const matchingCars = [];
 
-		const maxPrice = priceRange && priceRange.value !== ''
-			? parseFloat(priceRange.value)
-			: null;
+    cars.forEach(function (car) {
+      const carType = (car.dataset.type || "").toLowerCase().trim();
+      const carFuel = (car.dataset.fuel || "").toLowerCase().trim();
+      const carGearbox = normalizeGearbox(car.dataset.gearbox || "");
+      let carPrice = car.dataset.price || null;
+      const carCategory = (car.dataset.category || "").toLowerCase().trim();
 
-		const matchingCars = [];
+      if (carPrice !== null) {
+        carPrice = parseFloat(String(carPrice).replace(/[^\d.]/g, ""));
+      }
 
-		cars.forEach(function (car) {
-			const carType    = (car.dataset.type || '').toLowerCase().trim();
-			const carFuel    = (car.dataset.fuel || '').toLowerCase().trim();
-			const carGearbox = normalizeGearbox(car.dataset.gearbox || '');
-			let   carPrice   = car.dataset.price || null;
+      let visible = true;
 
-			if (carPrice !== null) {
-				carPrice = parseFloat(String(carPrice).replace(/[^\d.]/g, ''));
-			}
+      if (
+        selectedType !== "all" &&
+        selectedType !== "" &&
+        carCategory !== selectedType
+      ) {
+        visible = false;
+      }
 
-			let visible = true;
+      if (selectedFuel && carFuel !== selectedFuel) {
+        visible = false;
+      }
 
-			if (selectedType !== 'all' && selectedType !== '' && carType !== selectedType) {
-				visible = false;
-			}
+      if (selectedGearbox && carGearbox !== selectedGearbox) {
+        visible = false;
+      }
 
-			if (selectedFuel && carFuel !== selectedFuel) {
-				visible = false;
-			}
+      if (priceFilterActive && maxPrice !== null && carPrice > maxPrice) {
+        visible = false;
+      }
 
-			if (selectedGearbox && carGearbox !== selectedGearbox) {
-				visible = false;
-			}
+      if (visible) {
+        matchingCars.push(car);
+      }
+    });
 
-			if (maxPrice !== null && (carPrice === null || carPrice > maxPrice)) {
-				visible = false;
-			}
+    cars.forEach(function (car) {
+      car.style.display = "none";
+    });
 
-			if (visible) {
-				matchingCars.push(car);
-			}
-		});
+    matchingCars.slice(0, visibleCount).forEach(function (car) {
+      car.style.display = "";
+    });
 
-		cars.forEach(function (car) {
-			car.style.display = 'none';
-		});
+    if (loadMoreBtn) {
+      if (matchingCars.length > visibleCount) {
+        loadMoreBtn.style.display = "";
+      } else {
+        loadMoreBtn.style.display = "none";
+      }
+    }
+  }
 
-		matchingCars.slice(0, visibleCount).forEach(function (car) {
-			car.style.display = '';
-		});
+  function updatePriceUI() {
+    if (!priceRange || !priceLabel) return;
 
-		if (loadMoreBtn) {
-			if (matchingCars.length > visibleCount) {
-				loadMoreBtn.style.display = '';
-			} else {
-				loadMoreBtn.style.display = 'none';
-			}
-		}
-	}
+    const value = parseFloat(priceRange.value);
+    const min = parseFloat(priceRange.min);
+    const max = parseFloat(priceRange.max);
 
-	function updatePriceUI() {
-		if (!priceRange || !priceLabel) return;
+    priceLabel.textContent = `Price: €${value}/day`;
 
-		const value = parseFloat(priceRange.value) || 0;
-		const min   = parseFloat(priceRange.min) || 0;
-		const max   = parseFloat(priceRange.max) || 100;
-		const percent = ((value - min) / (max - min)) * 100;
+    let percent = ((value - min) / (max - min)) * 100;
+    priceRange.style.setProperty("--val", percent);
 
-		priceRange.style.setProperty('--val', percent);
-		priceLabel.textContent = `Max. $${value.toFixed(2)}`;
+    applyFilters(true);
+  }
 
-		applyFilters(true);
-	}
+  if (filterButtons.length) {
+    filterButtons.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        filterButtons.forEach(function (b) {
+          b.classList.remove("active");
+        });
+        btn.classList.add("active");
+        applyFilters(true);
+      });
+    });
+  }
 
-	if (filterButtons.length) {
-		filterButtons.forEach(function (btn) {
-			btn.addEventListener('click', function () {
-				filterButtons.forEach(function (b) {
-					b.classList.remove('active');
-				});
-				btn.classList.add('active');
-				applyFilters(true);
-			});
-		});
-	}
+  [fuelSelect, gearboxSelect].forEach(function (el) {
+    if (el) {
+      el.addEventListener("change", function () {
+        applyFilters(true);
+      });
+    }
+  });
 
-	[fuelSelect, gearboxSelect].forEach(function (el) {
-		if (el) {
-			el.addEventListener('change', function() {
-				applyFilters(true);
-			});
-		}
-	});
+  if (priceRange) {
+    priceRange.addEventListener("input", () => {
+      priceFilterActive = true;
+      updatePriceUI();
+    });
+  }
 
-	if (priceRange) {
-		priceRange.addEventListener('input', updatePriceUI);
-	}
+  if (loadMoreBtn) {
+    loadMoreBtn.addEventListener("click", function () {
+      visibleCount += 12;
+      applyFilters(false);
+    });
+  }
 
-	if (loadMoreBtn) {
-		loadMoreBtn.addEventListener('click', function () {
-			visibleCount += 12;
-			applyFilters(false);
-		});
-	}
-
-	updatePriceUI();
-
+  setTimeout(updatePriceUI, 30);
 });

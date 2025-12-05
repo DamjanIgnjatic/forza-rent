@@ -1,30 +1,42 @@
 <?php
 $car = $args['car'] ?? get_post();
 $id  = $car->ID;
+
+// Taxonomies
+$fuel_terms = wp_get_post_terms($id, 'fuel-type');
+$gear_terms = wp_get_post_terms($id, 'gearbox-type');
+$car_type_terms = wp_get_post_terms($id, 'car-type');
+$car_category_terms = wp_get_post_terms($id, 'car-model');
+
+
+// Taxonomy values
+$fuel_type  = $fuel_terms ? $fuel_terms[0]->name : null;
+$gearbox    = $gear_terms ? $gear_terms[0]->name : null;
+$type       = $car_type_terms ? $car_type_terms[0]->name : null;
+$type_slug = $car_type_terms ? $car_type_terms[0]->slug : null;
+$car_category_slug = $car_category_terms ? $car_category_terms[0]->slug : null;
+
+// Acf Values
 $name           = get_field('name', $id);
-$type           = get_field('type', $id);
-$gearbox        = get_field('gearbox', $id);
-$fuel_type      = get_field('fuel_type', $id);
 $capacity       = get_field('capacity', $id);
 $price          = get_field('price', $id);
 $discount_price = get_field('discount_price', $id);
 $link           = get_permalink($id);
 $image = get_the_post_thumbnail_url($id, 'large');
 
-$filter_price = $discount_price ?: $price;
+$filter_price = $price ?: $discount_price;
 
 ?>
-<div class="car-card" data-type="<?php echo strtolower(esc_attr($type)); ?>"
-    data-fuel="<?php echo strtolower(esc_attr($fuel_type)); ?>"
-    data-gearbox="<?php echo strtolower(esc_attr($gearbox)); ?>"
-    data-price="<?php echo esc_attr($filter_price); ?>">
+<div class="car-card" data-type="<?php echo esc_attr($type_slug); ?>"
+    data-fuel="<?php echo strtolower(($fuel_type)); ?>"
+    data-gearbox="<?php echo strtolower(($gearbox)); ?>"
+    data-price="<?php echo $filter_price; ?>"
+    data-category="<?php echo esc_attr($car_category_slug); ?>">
     <a class="single-link" href="<?php echo esc_url($link); ?>"></a>
     <h3 class="car-title"><?php echo get_the_title($id); ?></h3>
     <?php if ($type): ?>
         <p class="car-class"><?php echo $type ?></p>
     <?php endif; ?>
-
-
 
     <div class="car-details">
         <?php if ($image): ?>
@@ -69,8 +81,8 @@ $filter_price = $discount_price ?: $price;
         </div>
         <div class="price-container">
             <div class="price">
-                <p class="discount-price"><?php echo $discount_price ?>/<span class="gray-text">day</span></p>
-                <p class="old-price"><?php echo $price ?></p>
+                <p class="discount-price"><?php echo $price ?></p>
+                <p class="old-price"><?php echo $discount_price ?>/<span class="gray-text">day</span></p>
             </div>
             <a class="btn-forza primary">Rent now</a>
         </div>
