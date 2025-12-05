@@ -3,13 +3,13 @@ $car = $args['car'] ?? get_post();
 $id  = $car->ID;
 $name           = get_field('name', $id);
 $type           = get_field('type', $id);
-$image          = get_field('image', $id);
 $gearbox        = get_field('gearbox', $id);
 $fuel_type      = get_field('fuel_type', $id);
 $capacity       = get_field('capacity', $id);
 $price          = get_field('price', $id);
 $discount_price = get_field('discount_price', $id);
 $link           = get_permalink($id);
+$image = get_the_post_thumbnail_url($id, 'large');
 
 $filter_price = $discount_price ?: $price;
 
@@ -23,10 +23,15 @@ $filter_price = $discount_price ?: $price;
     <?php if ($type): ?>
         <p class="car-class"><?php echo $type ?></p>
     <?php endif; ?>
-    <?php if ($image): ?>
-        <img class="car-image" src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
-    <?php endif; ?>
+
+
+
     <div class="car-details">
+        <?php if ($image): ?>
+            <div class="car-image">
+                <img src="<?php echo esc_url($image); ?>" alt="<?php echo get_the_title($id); ?>" />
+            </div>
+        <?php endif; ?>
         <div class="specs">
             <div class="spec-icons">
                 <span class="fuel-icon">
@@ -67,7 +72,7 @@ $filter_price = $discount_price ?: $price;
                 <p class="discount-price"><?php echo $discount_price ?>/<span class="gray-text">day</span></p>
                 <p class="old-price"><?php echo $price ?></p>
             </div>
-            <button class="rent-now-btn">Rent now</button>
+            <a class="btn-forza primary">Rent now</a>
         </div>
     </div>
 </div>

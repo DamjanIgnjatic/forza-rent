@@ -9,6 +9,16 @@
     margin: 3rem 0;
   }
 
+  &.right {
+    .about-section-wrapper--box {
+      flex-direction: row-reverse;
+
+      @media screen and (max-width: $lg) {
+        flex-direction: column-reverse;
+      }
+    }
+  }
+
   &--box {
     display: flex;
     gap: 2rem;

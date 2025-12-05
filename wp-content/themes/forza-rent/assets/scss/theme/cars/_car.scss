@@ -21,7 +21,13 @@
   margin-bottom: 30px;
 }
 .car-image {
-  width: 272px;
+  height: 11rem;
+  max-width: 27.2rem;
+  width: 100%;
+}
+
+.car-image img {
+  object-fit: cover;
 }
 .car-details {
   display: flex;
