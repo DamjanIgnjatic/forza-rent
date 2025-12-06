@@ -1,16 +1,24 @@
 // Static theme colors
-$static-white: #fff;
-$static-black: #222;
-$static-light-title: #333;
-$static-light-text: #36334a;
-$static-dark-text: #e2e2e2ff;
-$static-dark-title: #fefefe;
+$background-primary: #0a0a0a;
+$background-secondary: #1a1a1a;
+$border-color: #2a2a2a;
+
+// Text Colors
+$text-primary: #aaa;
+$text-secondary: #90a3bf;
+
+// Accent (Logo/CTA/Links)
+$primary: #e6ff00;
+$primary-hover: #c8e600;
+$link-color: $primary;
+$link-hover: #eeff66;
+
+// Button Colors
+$button-bg: $primary;
+$button-hover: $primary-hover;
+$button-text: $background-primary;
 
 // Theme colors
-$primary: #3563e9;
-$primary-hover: #54a6ff;
-$secondary: #ffcc00;
-$secondary-hover: #ffbf0e;
 $gold: #f4ad17;
 $success: #3acc6c;
 $danger: #dd5555;
@@ -22,21 +30,17 @@ $gray-100: #f6f7f9;
 $gray-200: #e9ecef;
 $gray-300: #dee2e6;
 $gray-400: #ced4da;
-$gray-500: #90a3bf;
-$gray-600: #6c757d;
+$gray-600: #596780;
 $gray-700: #495057;
 $gray-800: #343a40;
 $gray-900: #1a202c;
-$black: #000;
-$orange-100: #f48031;
-
 // Gradient
 $gradient-100: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #fff 100%);
 
 // Basics
 $light: #f9f9f9;
-$background: #f6f7f9;
-$title: #333;
+$background: $background-primary;
+$title: $text-secondary;
 $text: #36334a;
 $border: #e9ecef;
 $gray: #343a40;

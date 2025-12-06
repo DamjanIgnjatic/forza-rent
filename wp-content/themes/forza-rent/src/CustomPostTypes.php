@@ -101,24 +101,7 @@ class CustomPostTypes
             'rewrite'      => ['slug' => 'car-category']
         ];
 
-        // Fuel type
-        $fuel_labels = [
-            'name'          => __('Fuel Type', 'forzarent'),
-            'singular_name' => __('Fuel Type', 'forzarent'),
-            'search_items'  => __('Search Fuel Types', 'forzarent'),
-            'all_items'     => __('All Fuel Types', 'forzarent'),
-            'edit_item'     => __('Edit Fuel Type', 'forzarent'),
-            'add_new_item'  => __('Add New Fuel Type', 'forzarent'),
-        ];
 
-        $fuel_args = [
-            'labels'       => $fuel_labels,
-            'hierarchical' => true,
-            'public'       => true,
-            'show_ui'      => true,
-            'show_in_rest' => true,
-            'rewrite'      => ['slug' => 'fuel-type'],
-        ];
 
         // Fuel type
         $gearbox_labels = [
@@ -141,8 +124,7 @@ class CustomPostTypes
 
         // taxonomy: car-category, vezana za CPT: cars
         register_taxonomy('car-type', ['cars'],  $car_type_args);
-        register_taxonomy('car-model', ['cars'],  $car_category_args);
-        register_taxonomy('fuel-type', ['cars'],  $fuel_args);
+        register_taxonomy('car-category', ['cars'], $car_category_args);
         register_taxonomy('gearbox-type', ['cars'],  $gearbox_args);
     }
 }

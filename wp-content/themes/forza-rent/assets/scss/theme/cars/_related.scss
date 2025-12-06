@@ -1,0 +1,40 @@
+// Variables
+@import "../../assets/scss/theme/variables/block-index";
+@import "../../assets/scss/theme/base/mixins";
+
+.section-related-cars {
+  margin: 6rem 0;
+  @media screen and (max-width: $lg) {
+    margin: 3rem 0;
+  }
+
+  &--title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2.6rem;
+
+    @media screen and (max-width: $lg) {
+      margin: 1.3rem 0;
+    }
+
+    h2 {
+      margin: 0;
+    }
+
+    a {
+      font-weight: 600;
+      line-height: 2.4rem;
+      letter-spacing: -0.32px;
+      color: $primary;
+      max-width: unset;
+      width: unset;
+      transition: all 240ms ease-in-out;
+      text-decoration: unset !important;
+
+      &:hover {
+        color: $primary-hover;
+      }
+    }
+  }
+}

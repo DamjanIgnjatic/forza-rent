@@ -1,0 +1,210 @@
+@import "../../assets/scss/theme/variables/block-index";
+@import "../../assets/scss/theme/base/mixins";
+
+.section-single-hero {
+  margin: 6rem 0;
+  @media screen and (max-width: $lg) {
+    margin: 3rem 0;
+  }
+  &--box {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+
+    @media screen and (max-width: $lg) {
+      flex-direction: column;
+    }
+
+    .car-gallery {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      @media screen and (max-width: $lg) {
+        width: 100%;
+      }
+
+      .car-gallery-featured {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        background-color: $background-secondary;
+        margin-bottom: 2.4rem;
+        border-radius: 1rem;
+
+        img {
+          padding: 21.6rem 5.4rem 5.4rem;
+        }
+      }
+
+      &-items {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+
+        .item {
+          width: 100%;
+          cursor: pointer;
+
+          img {
+            object-fit: cover;
+            width: 100%;
+          }
+
+          &.active {
+            padding: 8px;
+            border: 1px solid $border-color;
+            border-radius: 1rem;
+          }
+
+          &.featured-image {
+            display: flex;
+            align-items: center;
+
+            img {
+              padding: 4.6rem 8px;
+              width: 100%;
+              object-fit: cover;
+              background-color: $background-secondary;
+              border-radius: 1rem;
+            }
+          }
+        }
+      }
+    }
+
+    .car-information {
+      width: 50%;
+      background-color: $background-secondary;
+      border-radius: 1rem;
+      padding: 2.4rem 2.4rem 3.2rem 2.4rem;
+      display: flex;
+      flex-direction: column;
+
+      &.discount {
+        position: relative;
+        overflow: hidden;
+        &::after {
+          content: "Discount";
+          position: absolute;
+          top: 2.2rem;
+          right: -4.6rem;
+          width: 17rem;
+          text-align: center;
+
+          color: $white;
+          background-color: $gray-900;
+          letter-spacing: 1px;
+
+          padding: 0.6rem 0;
+          font-weight: 600;
+          font-size: 1.2rem;
+          text-transform: uppercase;
+
+          transform: rotate(45deg);
+          z-index: 10;
+
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+      }
+
+      &::after {
+        content: "";
+      }
+
+      @media screen and (max-width: $lg) {
+        width: 100%;
+      }
+
+      &--title {
+        margin-bottom: 3.4rem;
+
+        p {
+          color: $gray-600;
+          font-size: 2rem;
+          font-weight: 400;
+          line-height: 2;
+          letter-spacing: -0.4px;
+
+          @media screen and (max-width: $lg) {
+            font-size: 1.8rem;
+          }
+        }
+      }
+
+      &--box {
+        display: flex;
+        flex-direction: column;
+        gap: 1.6rem;
+
+        @media screen and (max-width: $lg) {
+          margin-bottom: 3.6rem;
+        }
+
+        .info-wrapper {
+          display: flex;
+          gap: 4.4rem;
+
+          div {
+            display: flex;
+            width: 50%;
+            justify-content: space-between;
+            font-size: 2rem;
+
+            @media screen and (max-width: $lg) {
+              font-size: 1.6rem;
+            }
+
+            @media screen and (max-width: $iphone) {
+              flex-direction: column;
+            }
+
+            span {
+              color: $text-secondary;
+              line-height: 1.5;
+              letter-spacing: -0.4px;
+            }
+
+            p {
+              color: $gray-600;
+              font-weight: 600;
+              line-height: 1.5;
+              letter-spacing: -0.4px;
+              margin-bottom: 0;
+            }
+          }
+        }
+      }
+
+      &--price {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: auto;
+        p {
+          margin: 0;
+        }
+
+        .price-info {
+          font-size: 2.8rem;
+          font-weight: 700;
+
+          span {
+            color: $text-secondary;
+            font-weight: 700;
+            font-size: 1.6rem;
+          }
+        }
+
+        .price-discount {
+          color: $text-secondary;
+          font-weight: 700;
+          text-decoration: line-through;
+        }
+      }
+    }
+  }
+}

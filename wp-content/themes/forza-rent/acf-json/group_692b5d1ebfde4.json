@@ -21,6 +21,69 @@
             "selected": 0
         },
         {
+            "key": "field_69343f261dcf8",
+            "label": "Production Year",
+            "name": "production_year",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "1990": 1990,
+                "1991": 1991,
+                "1992": 1992,
+                "1993": 1993,
+                "1994": 1994,
+                "1995": 1995,
+                "1996": 1996,
+                "1997": 1997,
+                "1998": 1998,
+                "1999": 1999,
+                "2000": 2000,
+                "2001": 2001,
+                "2002": 2002,
+                "2003": 2003,
+                "2004": 2004,
+                "2005": 2005,
+                "2006": 2006,
+                "2007": 2007,
+                "2008": 2008,
+                "2009": 2009,
+                "2010": 2010,
+                "2011": 2011,
+                "2012": 2012,
+                "2013": 2013,
+                "2014": 2014,
+                "2015": 2015,
+                "2016": 2016,
+                "2017": 2017,
+                "2018": 2018,
+                "2019": 2019,
+                "2020": 2020,
+                "2021": 2021,
+                "2022": 2022,
+                "2023": 2023,
+                "2024": 2024,
+                "2025": 2025
+            },
+            "default_value": false,
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "allow_in_bindings": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
+        },
+        {
             "key": "field_692b5d75fc488",
             "label": "Capacity",
             "name": "capacity",
@@ -82,6 +145,178 @@
             "placeholder": "",
             "prepend": "",
             "append": ""
+        },
+        {
+            "key": "field_69334795c4283",
+            "label": "Car Gallery",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_69334785c4282",
+            "label": "Car Gallery",
+            "name": "car_gallery",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "table",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "",
+            "button_label": "Add Row",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_693347a1c4284",
+                    "label": "Car Image",
+                    "name": "car_image",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "",
+                    "allow_in_bindings": 0,
+                    "preview_size": "medium",
+                    "parent_repeater": "field_69334785c4282"
+                }
+            ]
+        },
+        {
+            "key": "field_693347fbe7cba",
+            "label": "Car Description",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_693347b836434",
+            "label": "Car Description",
+            "name": "car_description",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "allow_in_bindings": 0,
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0
+        },
+        {
+            "key": "field_69344ec2006fd",
+            "label": "Price List",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_69344ed1006fe",
+            "label": "Price List",
+            "name": "price_list",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "table",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "",
+            "button_label": "Add Row",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_69344f028805a",
+                    "label": "Price",
+                    "name": "price",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_69344ed1006fe"
+                }
+            ]
         }
     ],
     "location": [
@@ -103,5 +338,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1764959634
+    "modified": 1765038720
 }

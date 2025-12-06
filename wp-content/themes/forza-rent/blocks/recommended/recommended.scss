@@ -16,6 +16,10 @@
     justify-content: space-between;
     margin-bottom: 2.6rem;
 
+    @media screen and (max-width: $lg) {
+      margin: 1.3rem 0;
+    }
+
     h2 {
       margin: 0;
     }
@@ -30,7 +34,7 @@
       transition: all 240ms ease-in-out;
 
       &:hover {
-        color: $primary-hover;
+        color: $link-hover;
       }
     }
   }
