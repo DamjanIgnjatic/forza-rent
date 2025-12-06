@@ -61,7 +61,7 @@
                             $link_title = $hero_right_link['title'];
                             $link_target = $hero_right_link['target'] ? $hero_right_link['target'] : '_self';
                         ?>
-                            <a class="btn-forza secondary" href="<?php echo esc_url($link_url); ?>" target="<?php echo esc_attr($link_target); ?>"><?php echo esc_html($link_title); ?></a>
+                            <a class="btn-forza primary" href="<?php echo esc_url($link_url); ?>" target="<?php echo esc_attr($link_target); ?>"><?php echo esc_html($link_title); ?></a>
                         <?php endif; ?>
                     </div>
                 </div>

@@ -3,24 +3,23 @@ $car = $args['car'] ?? get_post();
 $id  = $car->ID;
 
 // Taxonomies
-$fuel_terms = wp_get_post_terms($id, 'fuel-type');
 $gear_terms = wp_get_post_terms($id, 'gearbox-type');
 $car_type_terms = wp_get_post_terms($id, 'car-type');
-$car_category_terms = wp_get_post_terms($id, 'car-model');
-
+$car_category_terms = wp_get_post_terms($id, 'car-category');
 
 // Taxonomy values
-$fuel_type  = $fuel_terms ? $fuel_terms[0]->name : null;
 $gearbox    = $gear_terms ? $gear_terms[0]->name : null;
 $type       = $car_type_terms ? $car_type_terms[0]->name : null;
 $type_slug = $car_type_terms ? $car_type_terms[0]->slug : null;
 $car_category_slug = $car_category_terms ? $car_category_terms[0]->slug : null;
 
 // Acf Values
-$name           = get_field('name', $id);
+$production_year = get_field('production_year', $id);
 $capacity       = get_field('capacity', $id);
 $price          = get_field('price', $id);
 $discount_price = get_field('discount_price', $id);
+
+// links and images
 $link           = get_permalink($id);
 $image = get_the_post_thumbnail_url($id, 'large');
 
@@ -28,7 +27,7 @@ $filter_price = $price ?: $discount_price;
 
 ?>
 <div class="car-card" data-type="<?php echo esc_attr($type_slug); ?>"
-    data-fuel="<?php echo strtolower(($fuel_type)); ?>"
+    data-year="<?php echo strtolower(($production_year)); ?>"
     data-gearbox="<?php echo strtolower(($gearbox)); ?>"
     data-price="<?php echo $filter_price; ?>"
     data-category="<?php echo esc_attr($car_category_slug); ?>">
@@ -47,11 +46,25 @@ $filter_price = $price ?: $discount_price;
         <div class="specs">
             <div class="spec-icons">
                 <span class="fuel-icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M22.34 9.33L20.34 8.33C19.97 8.15 19.51 8.29 19.33 8.66C19.14 9.04 19.29 9.49 19.66 9.67L21.25 10.46V15.25L17.5 15.26V5C17.5 3 16.16 2 14.5 2H6.5C4.84 2 3.5 3 3.5 5V21.25H2C1.59 21.25 1.25 21.59 1.25 22C1.25 22.41 1.59 22.75 2 22.75H19C19.41 22.75 19.75 22.41 19.75 22C19.75 21.59 19.41 21.25 19 21.25H17.5V16.76L22 16.75C22.42 16.75 22.75 16.41 22.75 16V10C22.75 9.72 22.59 9.46 22.34 9.33ZM6 6.89C6 5.5 6.85 5 7.89 5H13.12C14.15 5 15 5.5 15 6.89V8.12C15 9.5 14.15 10 13.11 10H7.89C6.85 10 6 9.5 6 8.11V6.89ZM6.5 12.25H9.5C9.91 12.25 10.25 12.59 10.25 13C10.25 13.41 9.91 13.75 9.5 13.75H6.5C6.09 13.75 5.75 13.41 5.75 13C5.75 12.59 6.09 12.25 6.5 12.25Z" fill="#90A3BF" />
+                    <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="8" y="8" width="48" height="48" rx="6" fill="#FFF" stroke="#90a3bf" stroke-width="2" />
+
+                        <rect x="8" y="8" width="48" height="12" fill="#90A3BF" />
+
+                        <circle cx="18" cy="14" r="2" fill="#FFF" />
+                        <circle cx="32" cy="14" r="2" fill="#FFF" />
+                        <circle cx="46" cy="14" r="2" fill="#FFF" />
+
+                        <g transform="translate(16, 30)">
+                            <rect x="4" y="6" width="24" height="8" rx="2" fill="#90A3BF" />
+                            <path d="M8 6 L12 2 H20 L24 6 Z" fill="#90A3BF" />
+                            <circle cx="8" cy="16" r="3" fill="#90A3BF" />
+                            <circle cx="24" cy="16" r="3" fill="#90A3BF" />
+                        </g>
                     </svg>
+
                 </span>
-                <p><?php echo $fuel_type  ?></p>
+                <p><?php echo $production_year  ?></p>
             </div>
             <div class="spec-icons">
                 <span class="fuel-icon">
@@ -81,8 +94,8 @@ $filter_price = $price ?: $discount_price;
         </div>
         <div class="price-container">
             <div class="price">
-                <p class="discount-price"><?php echo $price ?></p>
-                <p class="old-price"><?php echo $discount_price ?>/<span class="gray-text">day</span></p>
+                <p class="discount-price">€ <?php echo $price ?>/day</p>
+                <p class="old-price">€ <?php echo $discount_price ?>/<span class="gray-text">day</span></p>
             </div>
             <a class="btn-forza primary">Rent now</a>
         </div>

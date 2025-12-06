@@ -8,11 +8,18 @@
   @media screen and (max-width: $lg) {
     margin: 3rem 0;
   }
+
+  &--title {
+    margin-bottom: 2.6rem;
+    h2 {
+      margin: 0;
+    }
+  }
+
   &--box {
     cursor: pointer;
     position: relative;
-    color: $white;
-    background-color: $primary;
+    background-color: $background-secondary;
     padding: 2.4rem;
     display: flex;
     flex-direction: column;
@@ -29,7 +36,6 @@
 
         h3 {
           margin: 0;
-          color: $white;
         }
       }
 
@@ -55,7 +61,6 @@
     p {
       margin: 0;
       line-height: 1.5;
-      font-weight: 500;
     }
   }
 }

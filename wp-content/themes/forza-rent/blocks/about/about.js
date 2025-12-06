@@ -1,16 +1,16 @@
 document.addEventListener("DOMContentLoaded", function () {
   // === CAR FILTERS ===
-  const filterButtons = document.querySelectorAll(".car-category");
   const cars = document.querySelectorAll(".grid .car-card");
-
-  const fuelSelect = document.getElementById("fuelFilter");
+  const noResults = document.querySelector(".no-results");
+  const categorySelect = document.getElementById("category");
+  const yearSelect = document.getElementById("yearFilter");
   const gearboxSelect = document.getElementById("gearboxFilter");
   const priceRange = document.getElementById("priceRange");
   const priceLabel = document.querySelector(".price-label");
-  let priceFilterActive = false;
 
   const loadMoreBtn = document.getElementById("loadMoreCars");
   let visibleCount = 12;
+  let priceFilterActive = false;
 
   if (!cars.length) return;
 
@@ -20,23 +20,17 @@ document.addEventListener("DOMContentLoaded", function () {
     if (["auto", "automatic", "automat", "automatika"].includes(v)) {
       return "automatic";
     }
-
     if (["manual", "man", "rucni", "ručni"].includes(v)) {
       return "manual";
     }
-
     return v;
   }
 
   function applyFilters(resetVisible = false) {
-    if (resetVisible) {
-      visibleCount = 12;
-    }
+    if (resetVisible) visibleCount = 12;
 
-    const activeTypeBtn = document.querySelector(".car-category.active");
-    const selectedType = activeTypeBtn ? activeTypeBtn.dataset.filter : "all";
-
-    const selectedFuel = (fuelSelect?.value || "").toLowerCase().trim();
+    const selectedCategory = (categorySelect?.value || "").toLowerCase().trim();
+    const selectedYear = (yearSelect?.value || "").trim();
     const selectedGearbox = normalizeGearbox(gearboxSelect?.value || "");
 
     const maxPrice =
@@ -47,57 +41,58 @@ document.addEventListener("DOMContentLoaded", function () {
     const matchingCars = [];
 
     cars.forEach(function (car) {
-      const carType = (car.dataset.type || "").toLowerCase().trim();
-      const carFuel = (car.dataset.fuel || "").toLowerCase().trim();
-      const carGearbox = normalizeGearbox(car.dataset.gearbox || "");
-      let carPrice = car.dataset.price || null;
       const carCategory = (car.dataset.category || "").toLowerCase().trim();
+      const carYear = (car.dataset.year || "").trim();
+      const carGearbox = normalizeGearbox(car.dataset.gearbox || "");
 
+      let carPrice = car.dataset.price || null;
       if (carPrice !== null) {
         carPrice = parseFloat(String(carPrice).replace(/[^\d.]/g, ""));
       }
 
       let visible = true;
 
-      if (
-        selectedType !== "all" &&
-        selectedType !== "" &&
-        carCategory !== selectedType
-      ) {
+      // CATEGORY filter
+      if (selectedCategory && carCategory !== selectedCategory) {
         visible = false;
       }
 
-      if (selectedFuel && carFuel !== selectedFuel) {
+      // YEAR filter
+      if (selectedYear && carYear !== selectedYear) {
         visible = false;
       }
 
+      // GEARBOX filter
       if (selectedGearbox && carGearbox !== selectedGearbox) {
         visible = false;
       }
 
+      // PRICE filter
       if (priceFilterActive && maxPrice !== null && carPrice > maxPrice) {
         visible = false;
       }
 
-      if (visible) {
-        matchingCars.push(car);
-      }
+      if (visible) matchingCars.push(car);
     });
 
-    cars.forEach(function (car) {
-      car.style.display = "none";
-    });
+    // Hide all, show only filtered
+    cars.forEach((car) => (car.style.display = "none"));
 
-    matchingCars.slice(0, visibleCount).forEach(function (car) {
+    matchingCars.slice(0, visibleCount).forEach((car) => {
       car.style.display = "";
     });
 
-    if (loadMoreBtn) {
-      if (matchingCars.length > visibleCount) {
-        loadMoreBtn.style.display = "";
+    if (noResults) {
+      if (matchingCars.length === 0) {
+        noResults.style.display = "block";
       } else {
-        loadMoreBtn.style.display = "none";
+        noResults.style.display = "none";
       }
+    }
+
+    if (loadMoreBtn) {
+      loadMoreBtn.style.display =
+        matchingCars.length > visibleCount ? "" : "none";
     }
   }
 
@@ -116,25 +111,18 @@ document.addEventListener("DOMContentLoaded", function () {
     applyFilters(true);
   }
 
-  if (filterButtons.length) {
-    filterButtons.forEach(function (btn) {
-      btn.addEventListener("click", function () {
-        filterButtons.forEach(function (b) {
-          b.classList.remove("active");
-        });
-        btn.classList.add("active");
-        applyFilters(true);
-      });
-    });
+  // EVENT LISTENERS
+  if (categorySelect) {
+    categorySelect.addEventListener("change", () => applyFilters(true));
   }
 
-  [fuelSelect, gearboxSelect].forEach(function (el) {
-    if (el) {
-      el.addEventListener("change", function () {
-        applyFilters(true);
-      });
-    }
-  });
+  if (yearSelect) {
+    yearSelect.addEventListener("change", () => applyFilters(true));
+  }
+
+  if (gearboxSelect) {
+    gearboxSelect.addEventListener("change", () => applyFilters(true));
+  }
 
   if (priceRange) {
     priceRange.addEventListener("input", () => {

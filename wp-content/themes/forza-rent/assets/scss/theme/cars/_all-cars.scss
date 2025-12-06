@@ -1,0 +1,26 @@
+.section-cars {
+  margin: 6rem 0;
+
+  @media screen and (max-width: $lg) {
+    margin: 3rem 0;
+  }
+
+  &--title {
+    margin-bottom: 2.6rem;
+
+    h2 {
+      margin: 0;
+    }
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2.6rem;
+  }
+
+  .cars-actions {
+    text-align: center;
+  }
+}

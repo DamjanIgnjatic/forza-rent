@@ -1,0 +1,53 @@
+@import "../../assets/scss/theme/variables/block-index";
+@import "../../assets/scss/theme/base/mixins";
+
+.section-price-list {
+  margin: 6rem 0;
+
+  @media screen and (max-width: $lg) {
+    margin: 3rem 0;
+  }
+
+  &--title {
+    margin-bottom: 2.6rem;
+    h2 {
+      margin: 0;
+    }
+  }
+
+  &--table {
+    overflow-x: scroll;
+    table {
+      border-collapse: collapse;
+      table-layout: fixed;
+      width: 100%;
+      background-color: $background-secondary;
+      border-radius: 1rem;
+
+      @media screen and (max-width: $md) {
+        width: max-content;
+        margin-bottom: 1.6rem;
+      }
+
+      tr:first-child th {
+        border-bottom: 0;
+      }
+
+      th {
+        color: $text-secondary;
+        font-weight: 700;
+      }
+
+      th {
+        font-weight: 500;
+      }
+
+      th,
+      td {
+        border: 2px solid $border-color;
+        padding: 0.8rem;
+        text-align: center;
+      }
+    }
+  }
+}

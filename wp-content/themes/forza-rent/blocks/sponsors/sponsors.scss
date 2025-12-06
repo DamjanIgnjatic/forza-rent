@@ -11,11 +11,19 @@
     margin: 3rem 0;
   }
 
+  &--title {
+    margin-bottom: 2.6rem;
+
+    h2 {
+      margin: 0;
+    }
+  }
+
   .sponsors-marquee {
     overflow: hidden;
     width: 100%;
     padding: 2.4rem;
-    background-color: $white;
+    background-color: $background-secondary;
     border-radius: 1.2rem;
 
     .track {

@@ -187,3 +187,14 @@ function fetch_template_part($template, $name = null, $args = [])
 
     return $response;
 }
+
+add_filter('acf/load_field/name=production_year', function ($field) {
+    $field['choices'] = [];
+    $current = date('Y');
+
+    for ($y = 1990; $y <= $current; $y++) {
+        $field['choices'][$y] = $y;
+    }
+
+    return $field;
+});

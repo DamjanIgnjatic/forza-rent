@@ -25,6 +25,10 @@
         id="<?php echo $sectionId; ?>"
         <?php endif; ?>>
         <div class="container">
+            <div class="sponsors-section-wrapper--title">
+                <h2>Partners</h2>
+            </div>
+
             <div class="sponsors-marquee">
                 <div class="track">
                     <?php foreach ($sponsors as $row): ?>

@@ -3,10 +3,10 @@ html,
 body.forzarent {
   height: 100vh;
   background: $background;
-  color: $gray-900;
+  color: $text-primary;
   font-size: $font-size;
   font-family: $text-font;
-  font-weight: $font-weight-base;
+  font-weight: 500;
   line-height: $line-height-base;
 
   &.freez {
@@ -21,13 +21,14 @@ body.forzarent {
 }
 
 hr {
-  border-color: $gray-500;
+  border-color: $text-secondary;
 }
 
 a {
   transition: color ease-in-out 240ms;
-  text-decoration: none;
+  text-decoration: none !important;
   color: $primary;
+  cursor: pointer;
 }
 
 b,
@@ -62,7 +63,7 @@ strong {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: $secondary;
+  background: $text-primary;
 }
 
 html {

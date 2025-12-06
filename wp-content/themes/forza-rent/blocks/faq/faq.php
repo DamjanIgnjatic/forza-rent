@@ -5,6 +5,10 @@ $count = 0;
 ?>
 <section class="section faq-section-wrapper">
     <div class="container">
+        <div class="faq-section-wrapper--title">
+            <h2>Everything You Need to Know</h2>
+        </div>
+
         <div class="faq-section-wrapper--box">
             <?php foreach ($faq as $row):
                 $question = $row['faq_question'];

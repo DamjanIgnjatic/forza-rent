@@ -43,23 +43,18 @@
     }
   }
 
-  h2 {
-    color: $white;
-  }
-
   p {
     line-height: 1.5;
     letter-spacing: -0.32px;
-    color: $white;
-    margin-bottom: 2rem;
     font-weight: 500;
+    margin-bottom: 2rem;
   }
 
   .left {
-    background-color: $info;
+    background-color: $background-secondary;
   }
 
   .right {
-    background-color: $primary;
+    background-color: $background-secondary;
   }
 }
