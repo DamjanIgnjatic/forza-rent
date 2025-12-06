@@ -14,15 +14,15 @@
 .car-category {
   cursor: pointer;
   margin-bottom: 0;
+  transition: all 240ms ease-in-out;
 }
 
 .car-category:hover {
-  text-decoration: underline;
+  color: $primary-hover;
 }
 
 .car-category.active {
-  text-decoration: underline;
-  color: #000;
+  color: $primary;
 }
 
 .grid {

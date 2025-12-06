@@ -4,6 +4,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const btnPrev = document.querySelector(".btn-prev");
   const descirption = document.querySelectorAll(".testimonial");
 
+  if (!descirption.length) return null;
+
   const totalSlidesCount = descirption.length;
   const realSlidesCount = totalSlidesCount - 2;
   const TRANSITION_DURATION = 500;

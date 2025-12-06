@@ -63,18 +63,37 @@ class CustomPostTypes
      */
     function registerCustomTaxonomies()
     {
-        $labels = [
-            'name'          => __('Car Categories', 'forzarent'),
-            'singular_name' => __('Car Category', 'forzarent'),
-            'search_items'  => __('Search Categories', 'forzarent'),
-            'all_items'     => __('All Categories', 'forzarent'),
-            'edit_item'     => __('Edit Category', 'forzarent'),
-            'add_new_item'  => __('Add New Category', 'forzarent'),
-            'menu_name'     => __('Car Categories', 'forzarent'),
+        // Car Type
+        $car_type_lables = [
+            'name'          => __('Car Type', 'forzarent'),
+            'singular_name' => __('Car Type', 'forzarent'),
+            'search_items'  => __('Search Car Types', 'forzarent'),
+            'all_items'     => __('All Car Types', 'forzarent'),
+            'edit_item'     => __('Edit Car Type', 'forzarent'),
+            'add_new_item'  => __('Add Car Type', 'forzarent'),
         ];
 
-        $args = [
-            'labels'       => $labels,
+        $car_type_args = [
+            'labels'       => $car_type_lables,
+            'hierarchical' => true,
+            'public'       => true,
+            'show_ui'      => true,
+            'show_in_rest' => true,
+            'rewrite'      => ['slug' => 'car-type']
+        ];
+
+        // Car Model
+        $car_category_lables = [
+            'name'          => __('Car Category', 'forzarent'),
+            'singular_name' => __('Car Category', 'forzarent'),
+            'search_items'  => __('Search Car Categorys', 'forzarent'),
+            'all_items'     => __('All Car Categorys', 'forzarent'),
+            'edit_item'     => __('Edit Car Category', 'forzarent'),
+            'add_new_item'  => __('Add Car Category', 'forzarent'),
+        ];
+
+        $car_category_args = [
+            'labels'       => $car_category_lables,
             'hierarchical' => true,
             'public'       => true,
             'show_ui'      => true,
@@ -82,8 +101,48 @@ class CustomPostTypes
             'rewrite'      => ['slug' => 'car-category']
         ];
 
+        // Fuel type
+        $fuel_labels = [
+            'name'          => __('Fuel Type', 'forzarent'),
+            'singular_name' => __('Fuel Type', 'forzarent'),
+            'search_items'  => __('Search Fuel Types', 'forzarent'),
+            'all_items'     => __('All Fuel Types', 'forzarent'),
+            'edit_item'     => __('Edit Fuel Type', 'forzarent'),
+            'add_new_item'  => __('Add New Fuel Type', 'forzarent'),
+        ];
+
+        $fuel_args = [
+            'labels'       => $fuel_labels,
+            'hierarchical' => true,
+            'public'       => true,
+            'show_ui'      => true,
+            'show_in_rest' => true,
+            'rewrite'      => ['slug' => 'fuel-type'],
+        ];
+
+        // Fuel type
+        $gearbox_labels = [
+            'name'          => __('Gearbox Type', 'forzarent'),
+            'singular_name' => __('Gearbox Type', 'forzarent'),
+            'search_items'  => __('Search Gearbox Types', 'forzarent'),
+            'all_items'     => __('All Gearbox Types', 'forzarent'),
+            'edit_item'     => __('Edit Gearbox Type', 'forzarent'),
+            'add_new_item'  => __('Add New gearbox Type', 'forzarent'),
+        ];
+
+        $gearbox_args = [
+            'labels'       => $gearbox_labels,
+            'hierarchical' => true,
+            'public'       => true,
+            'show_ui'      => true,
+            'show_in_rest' => true,
+            'rewrite'      => ['slug' => 'gearbox-type'],
+        ];
+
         // taxonomy: car-category, vezana za CPT: cars
-        register_taxonomy('car-category', ['cars'], $args);
-        register_taxonomy_for_object_type('projects', 'portfolio');
+        register_taxonomy('car-type', ['cars'],  $car_type_args);
+        register_taxonomy('car-model', ['cars'],  $car_category_args);
+        register_taxonomy('fuel-type', ['cars'],  $fuel_args);
+        register_taxonomy('gearbox-type', ['cars'],  $gearbox_args);
     }
 }
