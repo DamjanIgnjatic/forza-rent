@@ -33,3 +33,36 @@ footer.footer {
     border-top: 1px solid $border;
   }
 }
+
+#gform_wrapper_1 #gform_1 {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+#gform_wrapper_1 #input_1_1 {
+    max-width: 360px;
+    width: 100%;
+}
+
+#gform_wrapper_1 .gform_body {
+    max-width: 300px;
+    width: 100%;
+}
+
+#gform_wrapper_1 .gform_footer,
+#gform_wrapper_1 .gform_page_footer {
+    margin-block-start: 0 !important;
+}
+
+.gform_description{
+  display: none;
+}
+
+
+.newsletter-text{
+  font-size: 16px;
+  font-weight: 400;
+  margin-bottom: 0;
+}
