@@ -198,3 +198,38 @@ add_filter('acf/load_field/name=production_year', function ($field) {
 
     return $field;
 });
+
+add_filter('gform_validation_2', function ($validation_result) {
+
+    $form = $validation_result['form'];
+
+    // Date From = field ID 11
+    // Date To   = field ID 12
+    $from_raw = rgpost('input_11');
+    $to_raw   = rgpost('input_12');
+
+    if ($from_raw && $to_raw) {
+
+        $from = strtotime($from_raw);
+        $to   = strtotime($to_raw);
+
+        // Ako je datum DO pre datuma OD → greška
+        if ($to < $from) {
+
+            $validation_result['is_valid'] = false;
+
+            foreach ($form['fields'] as &$field) {
+                if ((int) $field->id === 11 || (int) $field->id === 12) {
+                    $field->failed_validation  = true;
+                    $field->validation_message = 'End date must be later than start date.';
+                }
+            }
+
+            $validation_result['form'] = $form;
+        }
+    }
+
+    return $validation_result;
+});
+
+add_filter('gform_allow_field_post_save', '__return_false');

@@ -26,7 +26,10 @@
         id="<?php echo $sectionId; ?>"
         <?php endif; ?>>
         <div class="container">
-            <h2><?php echo get_the_title() ?></h2>
+            <div class="services-title">
+            <h1><?php echo get_the_title() ?></h1>
+            <h2>Pored iznajmljivanja automobila, nudimo niz dodatnih usluga.</h2>
+            </div>
         </div>
     </section>
 <?php endif; ?>
