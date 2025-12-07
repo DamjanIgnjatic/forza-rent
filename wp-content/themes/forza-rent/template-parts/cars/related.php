@@ -43,7 +43,7 @@ $all_cars_link = get_post_type_archive_link('cars');
                     View all
                 </a>
             </div>
-            <div class="grid">
+            <div class="section-related-cars--box">
                 <?php while ($related_cars->have_posts()): $related_cars->the_post(); ?>
 
                     <?php
