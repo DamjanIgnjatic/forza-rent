@@ -9,23 +9,38 @@
 								<section class="footer-body-section">
 									<div class="container">
 										<div class="row footer-body pt-4">
-											<?php foreach ($columns as $no => $column): ?>
-												<?php $no++; ?>
-												<div class="<?php echo $column['column']; ?> section-<?php echo $no; ?>">
-													<?php
-													register_sidebar([
-														'name' => 'Footer section ' . $no,
-														'description' => 'Footer section ' . $no,
-														'id' => "footer-section-{$no}",
-														'before_widget' => '<div id="%1$s" class="widget footer-widget %2$s">',
-														'after_widget' => '</div>',
-														'before_title' => '<h3 class="widget-title">',
-														'after_title' => '</h3>',
-													]);
-													?>
-													<?php dynamic_sidebar("footer-section-{$no}"); ?>
-												</div>
-											<?php endforeach; ?>
+											<?php
+$columnsCount = is_array($columns) ? count($columns) : 0;
+?>
+
+<?php foreach ($columns as $no => $column): ?>
+    <?php 
+        $no++;
+
+        // podrazumevano – iz ACF-a
+        $colClass = isset($column['column']) ? $column['column'] : '';
+
+        // ako ima TAČNO 4 kolone, forsiraj 4 u redu na desktopu
+        if ($columnsCount === 4) {
+            $colClass = 'col-12 col-md-6 col-lg-3';
+        }
+    ?>
+    <div class="<?php echo esc_attr($colClass); ?> section-<?php echo esc_attr($no); ?>">
+        <?php
+        register_sidebar([
+            'name'          => 'Footer section ' . $no,
+            'description'   => 'Footer section ' . $no,
+            'id'            => "footer-section-{$no}",
+            'before_widget' => '<div id="%1$s" class="widget footer-widget %2$s">',
+            'after_widget'  => '</div>',
+            'before_title'  => '<h3 class="widget-title">',
+            'after_title'   => '</h3>',
+        ]);
+        ?>
+        <?php dynamic_sidebar("footer-section-{$no}"); ?>
+    </div>
+<?php endforeach; ?>
+
 										</div>
 									</div>
 								</section>
