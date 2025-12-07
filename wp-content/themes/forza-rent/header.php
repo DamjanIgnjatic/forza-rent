@@ -32,38 +32,20 @@
 
 					<div class="navigation--items">
 						<?php do_action('theme_navigation'); ?>
-						<?php $navBtns = get_field('navigation_buttons', 'option'); ?>
-						<?php if ($navBtns && is_array($navBtns)): ?>
-							<div class="nav-buttons">
-								<?php foreach ($navBtns as $val):
-									$count = 0;
-								?>
+						<?php echo do_shortcode('[social_media_icons]'); ?>
+					</div>
 
-									<?php if (is_array($val) && isset($val['link']) && is_array($val['link'])): $link = $val['link']; ?>
-										<?php $iconId = isset($val['icon']) && $val['icon'] ? $val['icon'] : false; ?>
-										<?php $type = isset($val['type']) && $val['type'] ? $val['type'] : 'btn-first'; ?>
-										<a href="<?php echo $link['url']; ?>" target="<?php echo $link['target']; ?>"
-											class="<?php echo $type; ?>">
-											<?php
-											if ($count > 0) {
-												echo "<p>a is bigger than b</p>";
-											} elseif ($count == 1) {
-												echo "a is equal to b";
-											} else {
-												echo "a is smaller than b";
-											}
-											?>
+					<div class="hamburger">
+						<span>
 
-											<?php echo $link['title']; ?>
-											<?php if ($iconId): ?>
-												<?php echo wp_get_attachment_image($iconId, 'full', false, ['class' => 'icon']); ?>
-											<?php endif; ?>
-										</a>
-									<?php endif; ?>
-								<?php $count++;
-								endforeach; ?>
-							</div>
-						<?php endif; ?>
+						</span>
+						<span>
+
+						</span>
+						<span>
+
+						</span>
+
 					</div>
 				</div>
 			</div>
