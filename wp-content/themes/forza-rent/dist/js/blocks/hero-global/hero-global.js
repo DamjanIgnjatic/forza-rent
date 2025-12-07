@@ -1,1 +1,1 @@
-document.addEventListener("DOMContentLoaded",function(){});
+document.addEventListener("DOMContentLoaded",function(){let c=document.getElementById("featuredImage"),a=document.querySelectorAll(".car-gallery-items .item");a.forEach(t=>{t.addEventListener("click",()=>{var e=t.querySelector("img");c.src=e.src,a.forEach(e=>e.classList.remove("active")),t.classList.add("active")})})});

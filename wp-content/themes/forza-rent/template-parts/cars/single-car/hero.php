@@ -31,7 +31,7 @@ $image = get_the_post_thumbnail_url($id, 'large');
         <div class="section-single-hero--box">
             <div class="car-gallery">
                 <div class="car-gallery-featured">
-                    <img src="<?php echo esc_url($image); ?>" alt="<?php echo get_the_title($id); ?>" />
+                    <img id="featuredImage" src="<?php echo esc_url($image); ?>" alt="<?php echo get_the_title($id); ?>" />
                 </div>
 
 
