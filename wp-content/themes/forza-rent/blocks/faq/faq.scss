@@ -5,12 +5,14 @@
 .faq-section-wrapper {
   padding: 0 !important;
   margin: 6rem 0;
+
   @media screen and (max-width: $lg) {
     margin: 3rem 0;
   }
 
   &--title {
     margin-bottom: 2.6rem;
+
     h2 {
       margin: 0;
     }
@@ -32,10 +34,14 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        align-items: center;
 
         h3 {
           margin: 0;
+        }
+
+        svg {
+          flex-shrink: 0;
+          transition: transform 0.25s ease;
         }
       }
 
@@ -46,18 +52,29 @@
           pointer-events: auto;
           visibility: visible;
           padding-top: 2rem;
+          max-height: 1000px;
+        }
+
+        .question svg {
+          transform: rotate(180deg);
         }
       }
     }
   }
 
   .answer {
-    position: absolute;
-    top: 0;
+    position: relative;
+    max-height: 0;
+    overflow: hidden;
     opacity: 0;
     pointer-events: none;
     visibility: hidden;
-    transition: all 240ms ease-in-out;
+    padding-top: 0;
+    transition:
+      max-height 0.3s ease,
+      opacity 0.25s ease,
+      padding-top 0.25s ease;
+
     p {
       margin: 0;
       line-height: 1.5;

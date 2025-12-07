@@ -15,7 +15,7 @@ $count = 0;
                 $answer = $row['faq_answer'];
             ?>
 
-                <div class="faq-section-wrapper--box-item <?php echo $count === 0 ? "active" : "" ?>">
+                <div class="faq-section-wrapper--box-item">
                     <?php if ($question): ?>
                         <div class="question">
                             <h3><?php echo $question ?></h3>

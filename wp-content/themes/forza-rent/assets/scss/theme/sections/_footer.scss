@@ -1,205 +1,80 @@
-/* ===========================
-   FOOTER – GLOBAL
-   =========================== */
+// Variables
+@import "../../assets/scss/theme/variables/block-index";
+@import "../../assets/scss/theme/base/mixins";
 
-.footer-body-section {
-    background: $background-secondary;
-    color: #ffffff;
-    padding: 40px 0 20px;
-    font-size: 14px;
-}
+.faq-section-wrapper {
+  padding: 0 !important;
+  margin: 6rem 0;
 
-.footer-body-section p {
-    font-size: 14px;
-    margin-bottom: 8px;
-}
+  @media screen and (max-width: $lg) {
+    margin: 3rem 0;
+  }
 
-.footer-body-section h3,
-.footer-body-section .widget-title {
-    font-size: 14px !important;
-    color: #ffffff !important;
-    margin: 0 0 12px !important;
-    font-weight: 600;
-    letter-spacing: 0.03em;
-    text-transform: uppercase;
-}
+  &--title {
+    margin-bottom: 2.6rem;
 
-.footer-body-section a {
-    color: #e6ff00;
-    text-decoration: none;
-    font-size: 14px;
-}
+    h2 {
+      margin: 0;
+    }
+  }
 
-.footer-body-section a:hover {
-    text-decoration: underline;
-}
-
-/* ROW / KOLONE */
-
-.footer-body {
-    align-items: flex-start;
-}
-
-.footer-body .section-1,
-.footer-body .section-2,
-.footer-body .section-3,
-.footer-body .section-4 {
-    margin-bottom: 24px;
-}
-
-/* ===========================
-   SECTION 1 – LOGO
-   =========================== */
-
-.footer-body .section-1 img {
-    max-width: 220px;
-    height: auto;
-    display: block;
-    margin-bottom: 8px;
-}
-
-/* ===========================
-   SECTION 2 – NAVIGACIJA
-   =========================== */
-
-.footer-body .section-2 ul.menu {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.footer-body .section-2 ul.menu li {
-    margin-bottom: 6px;
-    border: none;
-}
-
-.footer-body .section-2 ul.menu a {
-    font-size: 14px;
-}
-
-.footer-body .section-2 .widget_nav_menu {
+  &--box {
+    cursor: pointer;
+    position: relative;
+    background-color: $background-secondary;
+    padding: 2.4rem;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-}
+    gap: 2rem;
+    border-radius: 1.2rem;
+    margin-bottom: 2rem;
 
+    &-item {
+      .question {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
 
+        h3 {
+          margin: 0;
+        }
 
-/* ===========================
-   SECTION 4 – GRAVITY FORMS (NEWSLETTER)
-   =========================== */
+        svg {
+          flex-shrink: 0;
+          transition: transform 0.25s ease;
+        }
+      }
+      .answer {
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        padding-top: 0;
+        pointer-events: none;
+        visibility: hidden;
+        transition:
+          max-height 0.3s ease,
+          opacity 0.25s ease,
+          padding-top 0.25s ease;
 
-.footer-body #gform_wrapper_1 {
-    margin-top: 4px;
-    font-size: 14px;
-}
+        p {
+          margin: 0;
+          line-height: 1.5;
+        }
+      }
 
-.footer-body #gform_wrapper_1 .gform_heading .gform_title {
-    font-size: 14px !important;
-    font-weight: 600;
-    margin-bottom: 8px;
-    color: #ffffff;
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
-}
+      &.active {
+        .answer {
+          max-height: 999px;
+          opacity: 1;
+          padding-top: 2rem;
+          pointer-events: auto;
+          visibility: visible;
+        }
 
-.footer-body #gform_wrapper_1 input[type="text"],
-.footer-body #gform_wrapper_1 input[type="email"] {
-    width: 100%;
-    padding: 8px 10px;
-    border-radius: 4px;
-    border: 1px solid #686e77;
-    background: #111111;
-    color: #ffffff;
-    font-size: 14px;
-}
-
-.footer-body #gform_wrapper_1 input[type="text"]::placeholder,
-.footer-body #gform_wrapper_1 input[type="email"]::placeholder {
-    color: #888888;
-    font-size: 14px;
-}
-
-.footer-body #gform_wrapper_1 .gform_footer {
-    margin-top: 10px;
-}
-
-.footer-body #gform_wrapper_1 .gform_button {
-    display: inline-block;
-    padding: 8px 18px;
-    border-radius: 4px;
-    border: none;
-    background: #e6ff00;
-    color: #000;
-    font-weight: 600;
-    font-size: 14px;
-    cursor: pointer;
-}
-
-.footer-body #gform_wrapper_1 .gform_button:hover {
-    filter: brightness(0.9);
-}
-
-.gform_title {
-    color: #ffffff;
-}
-
-.footer-body .section-4 {
-    text-align: left;
-}
-.footer-body .section-4 .widget-title {
-    text-align: left;
-}
-
-/* ===========================
-   RESPONSIVE
-   =========================== */
-
-@media (max-width: 767.98px) {
-    .footer-body-section {
-        text-align: center;
+        .question svg {
+          transform: rotate(180deg);
+        }
+      }
     }
-
-    .footer-body .section-1 img {
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .footer-body .section-4 {
-        text-align: center;
-    }
-
-    .footer-body .section-2 .widget_nav_menu {
-    align-items: center;
-}
-}
-
-/* === SECTION 3 – TEKST UVEK VIDLJIV === */
-
-.footer-body .section-3 p {
-    color: #ffffff;
-    margin-bottom: 8px;
-}
-
-/* === GLOBALNO: SAV TEKST U FOOTERU BELI (OSIM LINKOVA) === */
-
-.footer-body-section,
-.footer-body-section p,
-.footer-body-section li,
-.footer-body-section .widget,
-.footer-body-section .widget_text,
-.footer-body-section .widget_text p,
-.footer-body-section .gform_description {
-    color: #ffffff;
-}
-
-.footer .copyright {
-    padding: 5px 0 !important;
-    margin-top: 0;
-    border-top: 1px solid #e6ff00;
-    background-color: #1a1a1a;
-}
-
-.footer .copyright p{
-    margin-bottom: 0 !important;
+  }
 }
