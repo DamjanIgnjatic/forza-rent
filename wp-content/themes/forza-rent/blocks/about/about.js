@@ -8,11 +8,32 @@ document.addEventListener("DOMContentLoaded", function () {
   const priceRange = document.getElementById("priceRange");
   const priceLabel = document.querySelector(".price-label");
 
+  const hamburger = document.querySelector(".hamburger");
+  const navItems = document.querySelectorAll(".theme-menu-content");
+  const socialIcons = document.querySelectorAll(
+    ".navigation--items .social-media-icons"
+  );
+  const body = document.body;
+
+  hamburger.addEventListener("click", () => {
+    body.classList.toggle("menu-open");
+  });
+
+  navItems.forEach((item) => {
+    item.addEventListener("click", () => {
+      body.classList.remove("menu-open");
+    });
+  });
+
+  socialIcons.forEach((icon) => {
+    icon.addEventListener("click", () => {
+      body.classList.remove("menu-open");
+    });
+  });
+
   const loadMoreBtn = document.getElementById("loadMoreCars");
   let visibleCount = 12;
   let priceFilterActive = false;
-
-  if (!cars.length) return;
 
   function normalizeGearbox(value) {
     const v = (value || "").toLowerCase().trim();
@@ -168,4 +189,6 @@ document.addEventListener("DOMContentLoaded", function () {
       dateTo.focus();
     }
   });
+
+  // hamburger
 });

@@ -1,21 +1,21 @@
 .social-media-links {
-    .link {
-        width: 55px;
-        height: 55px;
-        color: $text;
-        transition: all ease-in-out 480ms;
-        margin: .2rem;
-        border-radius: 50px;
-        border: 1px solid $border;
+  gap: 1.2rem;
+  .link {
+    width: 3.5rem;
+    height: 3.5rem;
+    color: $text;
+    transition: all ease-in-out 480ms;
+    border-radius: 50px;
+    border: 1px solid $border;
+    padding: 1rem;
 
-        &:hover {
-            background: $primary-hover;
-            color: $background;
-        }
+    .icon {
+      width: 2.1rem;
+      height: auto;
 
-        .icon {
-            width: 1.1rem;
-            height: auto;
-        }
+      path {
+        fill: $text-primary;
+      }
     }
+  }
 }
