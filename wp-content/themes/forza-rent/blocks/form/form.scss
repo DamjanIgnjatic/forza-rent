@@ -1,0 +1,31 @@
+// Variables
+@import "../../assets/scss/theme/variables/block-index";
+@import "../../assets/scss/theme/base/mixins";
+
+.form-section-wrapper {
+  padding: 0 !important;
+  margin: 6rem 0;
+
+  @media screen and (max-width: $lg) {
+    margin: 3rem 0;
+  }
+
+  &--title {
+    margin-bottom: 2.6rem;
+
+    h2 {
+      margin: 0;
+    }
+  }
+
+  .gform_wrapper {
+    margin: 0 !important;
+    padding-top: 7rem !important;
+    padding-bottom: 7rem !important;
+
+    form {
+      max-width: 70rem;
+      margin: 0 auto;
+    }
+  }
+}

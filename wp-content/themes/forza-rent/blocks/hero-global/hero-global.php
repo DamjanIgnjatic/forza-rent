@@ -27,8 +27,7 @@
         <?php endif; ?>>
         <div class="container">
             <div class="services-title">
-            <h1><?php echo get_the_title() ?></h1>
-            <h2>Pored iznajmljivanja automobila, nudimo niz dodatnih usluga.</h2>
+                <h1><?php echo get_the_title() ?></h1>
             </div>
         </div>
     </section>

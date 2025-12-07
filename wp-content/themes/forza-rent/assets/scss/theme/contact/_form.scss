@@ -1,50 +1,54 @@
 /* === WRAPPER / KARTICA === */
 #gform_wrapper_2 {
-    background: rgba(255, 255, 255, 0.25);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-    border-radius: 18px;
-    padding: 28px 30px 32px;
-    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
-    border: 1px solid rgba(255, 255, 255, 0.35);
+  background: $background-secondary;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-radius: 18px;
+  padding: 28px 30px 32px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.35);
 }
 
 /* skini default padding/margine */
 #gform_wrapper_2 .gform_body {
-    margin: 0;
+  margin: 0;
 }
 
 /* === LAYOUT POLA / CEO RED === */
 #gform_fields_2 {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 18px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px 20px;
 }
 
 #gform_fields_2 .gfield--width-full,
 #gform_fields_2 fieldset.gfield {
-    flex: 0 0 100%;
+  flex: 0 0 100%;
 }
 
 #gform_fields_2 .gfield--width-half {
-    flex: 0 0 calc(50% - 10px);
+  flex: 0 0 calc(50% - 10px);
 }
 
 /* === LABELS === */
 #gform_wrapper_2 .gfield_label {
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    color: #1a1f2b;
-    margin-bottom: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: $text-secondary;
+  margin-bottom: 6px;
+}
+
+body .gform-field-label--type-sub {
+  color: $text-secondary !important;
 }
 
 /* required tekst da bude diskretniji */
 #gform_wrapper_2 .gfield_required_text {
-    font-size: 11px;
-    font-weight: 500;
-    color: #c0392b;
+  font-size: 11px;
+  font-weight: 500;
+  color: #c0392b;
 }
 
 /* === INPUTI / SELECT / TEXTAREA === */
@@ -53,22 +57,19 @@
 #gform_wrapper_2 input[type="tel"],
 #gform_wrapper_2 select,
 #gform_wrapper_2 textarea {
-    width: 100%;
-    padding: 10px 14px;
-    border-radius: 10px;
-    border: 1px solid rgba(0, 0, 0, 0.15);
-    background: rgba(255, 255, 255, 0.9);
-    font-size: 14px;
-    outline: none;
-    transition:
-        border-color 0.2s ease,
-        box-shadow 0.2s ease,
-        background 0.2s ease,
-        transform 0.1s ease;
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  background: rgba(255, 255, 255, 0.9);
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease,
+    transform 0.1s ease;
 }
 
-#gform_wrapper_2 select{
-    padding: 0 14px !important;
+#gform_wrapper_2 select {
+  padding: 0 14px !important;
 }
 
 /* fokus */
@@ -77,160 +78,152 @@
 #gform_wrapper_2 input[type="tel"]:focus,
 #gform_wrapper_2 select:focus,
 #gform_wrapper_2 textarea:focus {
-    border-color: #f5b300; /* FORZA žuta */
-    box-shadow: 0 0 0 3px rgba(245, 179, 0, 0.2);
-    background: #ffffff;
-    transform: translateY(-1px);
+  border-color: #f5b300; /* FORZA žuta */
+  box-shadow: 0 0 0 3px rgba(245, 179, 0, 0.2);
+  background: #ffffff;
+  transform: translateY(-1px);
 }
 
 /* textarea malo veća i zaobljenija */
 #gform_wrapper_2 textarea {
-    min-height: 120px;
-    resize: vertical;
+  min-height: 120px;
+  resize: vertical;
 }
 
 /* === NAME FIELD (First / Last) === */
 #gform_wrapper_2 .ginput_container_name {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 16px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
 }
 
 #gform_wrapper_2 .ginput_container_name .gform-grid-col {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 #gform_wrapper_2 .ginput_container_name .gform-field-label--type-sub {
-    font-size: 12px;
-    font-weight: 500;
-    color: #555;
-    margin-bottom: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #555;
+  margin-bottom: 4px;
 }
 
 /* === SUBMIT DUGME === */
 #gform_wrapper_2 .gform_footer {
-    margin-top: 20px;
-    text-align: right;
+  margin-top: 20px;
+  text-align: right;
 }
 
 #gform_wrapper_2 #gform_submit_button_2 {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px 24px;
-    border-radius: 999px;
-    border: none;
-    cursor: pointer;
-    background: linear-gradient(135deg, #f5b300, #ffcf4d);
-    color: #111;
-    font-weight: 600;
-    font-size: 14px;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
-    transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.2s ease;
-}
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 24px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  background: $primary;
+  color: $button-text;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: all 240ms ease-in-out;
 
-#gform_wrapper_2 #gform_submit_button_2:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.35);
-    background: linear-gradient(135deg, #ffd14f, #ffe184);
-}
-
-#gform_wrapper_2 #gform_submit_button_2:active {
-    transform: translateY(1px);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+  &:hover {
+    background-color: $primary-hover;
+  }
 }
 
 #gform_wrapper_2 .gfield_error input,
 #gform_wrapper_2 .gfield_error textarea,
 #gform_wrapper_2 .gfield_error select,
 #gform_wrapper_2 input.gform_validation_error {
-    border-color: #e53935;
-    box-shadow: 0 0 0 2px rgba(229, 57, 53, 0.18);
+  border-color: #e53935;
+  box-shadow: 0 0 0 2px rgba(229, 57, 53, 0.18);
 }
 
 /* KONFIRMACIONA PORUKA – CENTAR EKRANA */
 #gform_confirmation_message_2 {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 
-    max-width: 700px;
-    width: calc(100% - 40px);
-    padding: 18px 22px;
-    border-radius: 14px;
-    background: rgba(255, 255, 255, 0.96);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(0, 0, 0, 0.06);
-    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.18);
+  max-width: 700px;
+  width: calc(100% - 40px);
+  padding: 18px 22px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.18);
 
-    font-size: 18px;
-    line-height: 1.5;
-    font-weight: 500;
-    color: #132033;
-    text-align: center;
-    z-index: 999; /* da bude iznad sadržaja */
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 500;
+  color: #132033;
+  text-align: center;
+  z-index: 999; /* da bude iznad sadržaja */
 
-    margin: 0; /* poništi auto margine koje si imao */
+  margin: 0; /* poništi auto margine koje si imao */
 }
 
 /* mali zelenkasti “success” akcenat levo */
 #gform_confirmation_message_2::before {
-    content: "✔";
-    display: inline-block;
-    margin-right: 10px;
-    font-size: 20px;
-    color: #27ae60;
+  content: "✔";
+  display: inline-block;
+  margin-right: 10px;
+  font-size: 20px;
+  color: #27ae60;
 }
 
 #gform_confirmation_message_2 p {
-    margin: 0 0 16px;
+  margin: 0 0 16px;
 }
 
 .gf-confirm-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 9px 22px;
-    border-radius: 999px;
-    text-decoration: none;
-    background: linear-gradient(135deg, #f5b300, #ffcf4d);
-    color: #111;
-    font-weight: 600;
-    font-size: 14px;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28);
-    transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 9px 22px;
+  border-radius: 999px;
+  text-decoration: none;
+  background: linear-gradient(135deg, #f5b300, #ffcf4d);
+  color: #111;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28);
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.2s ease;
 }
 
 .gf-confirm-btn:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.35);
-    background: linear-gradient(135deg, #ffd14f, #ffe184);
+  transform: translateY(-1px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.35);
+  background: linear-gradient(135deg, #ffd14f, #ffe184);
 }
 
 .gf-confirm-btn:active {
-    transform: translateY(1px);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+  transform: translateY(1px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
 }
 
 /* === RESPONSIVE === */
 @media (max-width: 768px) {
-    #gform_wrapper_2 {
-        padding: 20px 18px 22px;
-        border-radius: 14px;
-    }
+  #gform_wrapper_2 {
+    padding: 20px 18px 22px;
+    border-radius: 14px;
+  }
 
-    #gform_fields_2 .gfield--width-half {
-        flex: 0 0 100%;
-    }
+  #gform_fields_2 .gfield--width-half {
+    flex: 0 0 100%;
+  }
 
-    #gform_wrapper_2 .ginput_container_name {
-        grid-template-columns: 1fr;
-    }
+  #gform_wrapper_2 .ginput_container_name {
+    grid-template-columns: 1fr;
+  }
 }

@@ -1,0 +1,62 @@
+// Variables
+@import "../../assets/scss/theme/variables/block-index";
+@import "../../assets/scss/theme/base/mixins";
+
+.contact-section-wrapper {
+  margin: 6rem 0;
+  padding: 0 !important;
+
+  @media screen and (max-width: $lg) {
+    margin: 3rem 0;
+  }
+
+  &--title {
+    margin-bottom: 2.6rem;
+
+    h2 {
+      margin: 0;
+    }
+  }
+
+  &--cards {
+    display: flex;
+    justify-content: space-between;
+    gap: 2.2rem;
+
+    @media screen and (max-width: $lg) {
+      flex-direction: column;
+      gap: 2rem;
+    }
+    .card {
+      display: flex;
+      background-color: $background-secondary;
+      width: 100%;
+      padding: 2.4rem;
+      border-radius: 1.2rem;
+      color: $text-primary;
+      position: relative;
+
+      img {
+        width: 44px;
+        height: auto;
+        filter: brightness(0) saturate(100%) invert(67%) sepia(0%) saturate(0%)
+          brightness(105%);
+      }
+
+      &:not(:first-of-type) {
+        a {
+          color: $text-primary;
+        }
+
+        .btn-forza {
+          display: none;
+        }
+      }
+
+      a {
+        position: absolute;
+        inset: 0;
+      }
+    }
+  }
+}
