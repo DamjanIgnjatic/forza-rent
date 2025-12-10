@@ -14,10 +14,10 @@
   transition: all 240ms ease-in-out;
 
   &.primary {
-    background-color: $primary;
+    background-color: $button-bg;
 
     &:hover {
-      background-color: $primary-hover;
+      background-color: $button-hover;
     }
   }
 }

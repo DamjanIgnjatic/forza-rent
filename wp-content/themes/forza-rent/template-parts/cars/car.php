@@ -26,12 +26,11 @@ $image = get_the_post_thumbnail_url($id, 'large');
 $filter_price = $price ?: $discount_price;
 
 ?>
-<div class="car-card" data-type="<?php echo esc_attr($type_slug); ?>"
+<a href="<?php echo esc_url($link); ?>" class="car-card" data-type="<?php echo esc_attr($type_slug); ?>"
     data-year="<?php echo strtolower(($production_year)); ?>"
     data-gearbox="<?php echo strtolower(($gearbox)); ?>"
     data-price="<?php echo $filter_price; ?>"
     data-category="<?php echo esc_attr($car_category_slug); ?>">
-    <a class="single-link" href="<?php echo esc_url($link); ?>"></a>
     <h3 class="car-title"><?php echo get_the_title($id); ?></h3>
     <?php if ($type): ?>
         <p class="car-class"><?php echo $type ?></p>
@@ -97,7 +96,7 @@ $filter_price = $price ?: $discount_price;
                 <p class="discount-price">€ <?php echo $price ?>/day</p>
                 <p class="old-price">€ <?php echo $discount_price ?>/<span class="gray-text">day</span></p>
             </div>
-            <a class="btn-forza primary">Rent now</a>
+            <button class="btn-forza primary">Rent now</button>
         </div>
     </div>
-</div>
+</a>

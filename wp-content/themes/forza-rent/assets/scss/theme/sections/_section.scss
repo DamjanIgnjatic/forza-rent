@@ -1,9 +1,18 @@
 // Section
-
+$max-container: 1340px;
+$smaller-container-proportion: 70%;
 .section {
   & > div {
     position: relative;
     z-index: 2;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 100%;
+    @media only screen and (min-width: $xl) {
+      width: min($smaller-container-proportion, $max-container);
+    }
   }
 
   &.block {
@@ -35,17 +44,6 @@
   &.full-height-desktop {
     @media only screen and (min-width: $lg) {
       min-height: 100vh;
-    }
-  }
-
-  .bg-default,
-  &.bg-default {
-    background-color: $background !important;
-
-    &.show-grid {
-      &::after {
-        background: linear-gradient(135deg, transparent 0%, $background 85%);
-      }
     }
   }
 

@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../blocks/hero-global/hero-global.js"],
+  "sourcesContent": ["// DOM content loaded event listener\r\ndocument.addEventListener(\"DOMContentLoaded\", function () {\r\n  const featured = document.getElementById(\"featuredImage\");\r\n  const thumbs = document.querySelectorAll(\".car-gallery-items .item\");\r\n\r\n  thumbs.forEach((item) => {\r\n    item.addEventListener(\"click\", () => {\r\n      const img = item.querySelector(\"img\");\r\n\r\n      featured.src = img.src;\r\n\r\n      thumbs.forEach((i) => i.classList.remove(\"active\"));\r\n      item.classList.add(\"active\");\r\n    });\r\n  });\r\n});\r\n"],
+  "mappings": "MACA,SAAS,iBAAiB,mBAAoB,UAAY,CACxD,IAAMA,EAAW,SAAS,eAAe,eAAe,EAClDC,EAAS,SAAS,iBAAiB,0BAA0B,EAEnEA,EAAO,QAASC,GAAS,CACvBA,EAAK,iBAAiB,QAAS,IAAM,CACnC,IAAMC,EAAMD,EAAK,cAAc,KAAK,EAEpCF,EAAS,IAAMG,EAAI,IAEnBF,EAAO,QAASG,GAAMA,EAAE,UAAU,OAAO,QAAQ,CAAC,EAClDF,EAAK,UAAU,IAAI,QAAQ,CAC7B,CAAC,CACH,CAAC,CACH,CAAC",
+  "names": ["featured", "thumbs", "item", "img", "i"]
+}

@@ -3,44 +3,15 @@
 @import "../../assets/scss/theme/base/mixins";
 
 .hero-section-section-wrapper {
-  padding: 0 !important;
-  margin: 6rem 0;
+  padding-top: 7.5rem !important;
+  height: calc(100vh - 75px);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
 
-  @media screen and (max-width: $lg) {
-    margin: 3rem 0;
-  }
-
-  &--box {
-    display: flex !important;
-    justify-content: space-between;
-    gap: 2rem;
-    @media screen and (max-width: $lg) {
-      flex-direction: column;
-      gap: 3rem;
-    }
-  }
-
-  .column {
-    background-position: center;
-    background-size: cover;
-    background-position: center;
-    max-width: 64rem;
-    width: 100%;
-    padding: 2.4rem 2.4rem 12rem 2.4rem;
-    border-radius: 1rem;
-
-    @media screen and (max-width: $lg) {
-      max-width: 100%;
-    }
-
-    div {
-      max-width: 28.2rem;
-      width: 100%;
-
-      @media screen and (max-width: $lg) {
-        max-width: 100%;
-      }
-    }
+  h1 {
+    text-transform: uppercase;
   }
 
   p {
@@ -48,13 +19,5 @@
     letter-spacing: -0.32px;
     font-weight: 500;
     margin-bottom: 2rem;
-  }
-
-  .left {
-    background-color: $background-secondary;
-  }
-
-  .right {
-    background-color: $background-secondary;
   }
 }

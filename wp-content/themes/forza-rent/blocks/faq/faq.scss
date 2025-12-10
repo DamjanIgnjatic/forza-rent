@@ -21,8 +21,6 @@
   &--box {
     cursor: pointer;
     position: relative;
-    background-color: $background-secondary;
-    padding: 2.4rem;
     display: flex;
     flex-direction: column;
     gap: 2rem;
@@ -30,10 +28,17 @@
     margin-bottom: 2rem;
 
     &-item {
+      background: $background-secondary;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+      border-radius: 1.2rem;
+
       .question {
         display: flex;
         align-items: center;
         justify-content: space-between;
+        padding: 2.4rem;
 
         h3 {
           margin: 0;
@@ -51,12 +56,13 @@
           opacity: 1;
           pointer-events: auto;
           visibility: visible;
-          padding-top: 2rem;
           max-height: 1000px;
+          padding-bottom: 2.4rem;
         }
 
-        .question svg {
+        svg {
           transform: rotate(180deg);
+          flex: none;
         }
       }
     }
@@ -69,12 +75,8 @@
     opacity: 0;
     pointer-events: none;
     visibility: hidden;
-    padding-top: 0;
-    transition:
-      max-height 0.3s ease,
-      opacity 0.25s ease,
-      padding-top 0.25s ease;
-
+    transition: max-height 0.3s ease, opacity 0.25s ease, padding-top 0.25s ease;
+    padding: 0rem 2.4rem;
     p {
       margin: 0;
       line-height: 1.5;

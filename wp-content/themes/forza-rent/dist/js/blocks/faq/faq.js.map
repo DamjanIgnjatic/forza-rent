@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../blocks/faq/faq.js"],
+  "sourcesContent": ["document.addEventListener(\"DOMContentLoaded\", function () {\r\n  const items = Array.from(\r\n    document.querySelectorAll(\".faq-section-wrapper--box-item\")\r\n  );\r\n\r\n  if (!items.length) return;\r\n\r\n  console.log(items);\r\n\r\n  items.forEach((item) => {\r\n    item.addEventListener(\"click\", function () {\r\n      const isActive = item.classList.contains(\"active\");\r\n\r\n      items.forEach((i) => {\r\n        i.classList.remove(\"active\");\r\n      });\r\n\r\n      if (!isActive) {\r\n        item.classList.add(\"active\");\r\n      }\r\n    });\r\n  });\r\n});\r\n"],
+  "mappings": "MAAA,SAAS,iBAAiB,mBAAoB,UAAY,CACxD,IAAMA,EAAQ,MAAM,KAClB,SAAS,iBAAiB,gCAAgC,CAC5D,EAEKA,EAAM,SAEX,QAAQ,IAAIA,CAAK,EAEjBA,EAAM,QAASC,GAAS,CACtBA,EAAK,iBAAiB,QAAS,UAAY,CACzC,IAAMC,EAAWD,EAAK,UAAU,SAAS,QAAQ,EAEjDD,EAAM,QAASG,GAAM,CACnBA,EAAE,UAAU,OAAO,QAAQ,CAC7B,CAAC,EAEID,GACHD,EAAK,UAAU,IAAI,QAAQ,CAE/B,CAAC,CACH,CAAC,EACH,CAAC",
+  "names": ["items", "item", "isActive", "i"]
+}
