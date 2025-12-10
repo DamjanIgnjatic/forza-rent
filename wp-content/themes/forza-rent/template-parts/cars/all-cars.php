@@ -24,7 +24,7 @@ $cars_query = new WP_Query([
             ?>
         </div>
         <div class="cars-actions">
-            <button id="loadMoreCars" class="btn-forza primary">Show more</button>
+            <button id="loadMoreCars" style="border: none;" class="btn-forza primary">Show more</button>
         </div>
 
         <p class="no-results" style="display:none;">No cars match your filters.</p>

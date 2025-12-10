@@ -1,15 +1,18 @@
 document.addEventListener("DOMContentLoaded", function () {
-  var items = document.querySelectorAll(".faq-section-wrapper--box-item");
+  const items = Array.from(
+    document.querySelectorAll(".faq-section-wrapper--box-item")
+  );
 
-  Array.prototype.forEach.call(items, function (item) {
-    var question = item.querySelector(".question");
-    if (!question) return;
+  if (!items.length) return;
 
-    question.addEventListener("click", function () {
-      var isActive = item.classList.contains("active");
+  console.log(items);
 
-      Array.prototype.forEach.call(items, function (other) {
-        other.classList.remove("active");
+  items.forEach((item) => {
+    item.addEventListener("click", function () {
+      const isActive = item.classList.contains("active");
+
+      items.forEach((i) => {
+        i.classList.remove("active");
       });
 
       if (!isActive) {

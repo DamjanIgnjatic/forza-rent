@@ -16,6 +16,13 @@ Modal.init();
 const Accordions = require("./components/accordions");
 Accordions.init();
 
+const Navigations = require("./components/navigation");
+Navigations.init();
+
+// Animations
+const Animation = require("./components/animation");
+Animation.init();
+
 // Image gallery
 const ImageGallery = require("./components/image-gallery");
 ImageGallery.init();
@@ -219,4 +226,17 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
   }
+
+  // Active menu/navigation item
+  const navigationItems = document.querySelectorAll(".menu-item");
+
+  navigationItems.forEach((item) => {
+    item.addEventListener("click", () => {
+      navigationItems.forEach((el) => {
+        el.classList.remove("current-menu-item");
+      });
+
+      item.classList.add("current-menu-item");
+    });
+  });
 });

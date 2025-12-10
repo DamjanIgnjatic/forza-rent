@@ -1,7 +1,7 @@
 // Defaults
 html,
 body.forzarent {
-  height: 100vh;
+  min-height: 100%;
   background: $background;
   color: $text-primary;
   font-size: $font-size;
@@ -52,7 +52,7 @@ hr {
 a {
   transition: color ease-in-out 240ms;
   text-decoration: none !important;
-  color: $primary;
+  color: $button-bg;
   cursor: pointer;
 }
 

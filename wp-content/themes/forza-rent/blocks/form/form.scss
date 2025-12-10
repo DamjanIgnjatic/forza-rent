@@ -22,6 +22,13 @@
     margin: 0 !important;
     padding-top: 7rem !important;
     padding-bottom: 7rem !important;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5),
+      inset 0 1px 0 rgba(255, 255, 255, 0.05);
+
+    @media screen and (max-width: $lg) {
+      margin: 3.5rem 0;
+    }
 
     form {
       max-width: 70rem;

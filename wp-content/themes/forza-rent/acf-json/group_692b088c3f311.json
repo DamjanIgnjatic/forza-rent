@@ -21,6 +21,27 @@
             "selected": 0
         },
         {
+            "key": "field_69389e9fe0abc",
+            "label": "Title",
+            "name": "title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_692c804a3b8f2",
             "label": "FAQ Global",
             "name": "faq_global",
@@ -108,5 +129,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1764616991
+    "modified": 1765318312
 }

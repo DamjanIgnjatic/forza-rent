@@ -23,49 +23,33 @@
     $hero_right_link = get_field("hero_right_link");
     $hero_right_background_image = get_field("hero_right_background_image");
     ?>
-    <section class="section section-hero hero-section-section-wrapper block">
+    <section class="section section-hero hero-section-section-wrapper block"
+        <?php if ($bgUrl): ?>
+        style="background-image: url('<?php echo $bgUrl; ?>');"
+        data-desktop-image="<?php echo $bgUrl; ?>"
+        <?php endif; ?>
+        <?php if ($mobileBgUrl): ?>
+        data-mobile-image="<?php echo $mobileBgUrl; ?>"
+        <?php endif; ?>>
         <div class="container">
-            <div class="hero-section-section-wrapper--box">
-                <div class="left column" style="background-image: url('<?php echo $hero_left_background_image["url"]; ?>');">
-                    <div>
-                        <?php if ($hero_left_title) : ?>
-                            <h2><?php echo $hero_left_title ?></h2>
-                        <?php endif; ?>
+            <div>
+                <?php if ($hero_left_title) : ?>
+                    <h1><?php echo $hero_left_title ?></h1>
+                <?php endif; ?>
 
-                        <?php if ($hero_left_description) : ?>
-                            <?php echo $hero_left_description ?>
-                        <?php endif; ?>
-                        <?php
-                        if ($hero_left_link):
-                            $link_url = $hero_left_link['url'];
-                            $link_title = $hero_left_link['title'];
-                            $link_target = $hero_left_link['target'] ? $hero_left_link['target'] : '_self';
-                        ?>
-                            <a class="btn-forza primary" href="<?php echo esc_url($link_url); ?>" target="<?php echo esc_attr($link_target); ?>"><?php echo esc_html($link_title); ?></a>
-                        <?php endif; ?>
-                    </div>
-                </div>
-
-                <div class="right column" style="background-image: url('<?php echo $hero_right_background_image["url"]; ?>');">
-                    <div>
-                        <?php if ($hero_right_title) : ?>
-                            <h2><?php echo $hero_right_title ?></h2>
-                        <?php endif; ?>
-
-                        <?php if ($hero_right_description) : ?>
-                            <?php echo $hero_right_description ?>
-                        <?php endif; ?>
-                        <?php
-                        if ($hero_right_link):
-                            $link_url = $hero_right_link['url'];
-                            $link_title = $hero_right_link['title'];
-                            $link_target = $hero_right_link['target'] ? $hero_right_link['target'] : '_self';
-                        ?>
-                            <a class="btn-forza primary" href="<?php echo esc_url($link_url); ?>" target="<?php echo esc_attr($link_target); ?>"><?php echo esc_html($link_title); ?></a>
-                        <?php endif; ?>
-                    </div>
-                </div>
+                <?php if ($hero_left_description) : ?>
+                    <?php echo $hero_left_description ?>
+                <?php endif; ?>
+                <?php
+                if ($hero_left_link):
+                    $link_url = $hero_left_link['url'];
+                    $link_title = $hero_left_link['title'];
+                    $link_target = $hero_left_link['target'] ? $hero_left_link['target'] : '_self';
+                ?>
+                    <a class="btn-forza primary" href="<?php echo esc_url($link_url); ?>" target="<?php echo esc_attr($link_target); ?>"><?php echo esc_html($link_title); ?></a>
+                <?php endif; ?>
             </div>
+        </div>
         </div>
     </section>
 <?php endif; ?>
