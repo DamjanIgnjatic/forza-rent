@@ -21,6 +21,27 @@
             "selected": 0
         },
         {
+            "key": "field_693b3900ecf86",
+            "label": "Testimonials Title",
+            "name": "testimonials_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_692c7ebaf32da",
             "label": "Testimonials Global",
             "name": "testimonials_global",
@@ -130,5 +151,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1764537455
+    "modified": 1765489018
 }

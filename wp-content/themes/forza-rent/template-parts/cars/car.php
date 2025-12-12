@@ -6,12 +6,14 @@ $id  = $car->ID;
 $gear_terms = wp_get_post_terms($id, 'gearbox-type');
 $car_type_terms = wp_get_post_terms($id, 'car-type');
 $car_category_terms = wp_get_post_terms($id, 'car-category');
+$drive_terms = wp_get_post_terms($id, 'drive-type');
 
 // Taxonomy values
 $gearbox    = $gear_terms ? $gear_terms[0]->name : null;
 $type       = $car_type_terms ? $car_type_terms[0]->name : null;
 $type_slug = $car_type_terms ? $car_type_terms[0]->slug : null;
 $car_category_slug = $car_category_terms ? $car_category_terms[0]->slug : null;
+$drive_type = $drive_terms ? $drive_terms[0]->slug : null;
 
 // Acf Values
 $production_year = get_field('production_year', $id);
@@ -30,7 +32,8 @@ $filter_price = $price ?: $discount_price;
     data-year="<?php echo strtolower(($production_year)); ?>"
     data-gearbox="<?php echo strtolower(($gearbox)); ?>"
     data-price="<?php echo $filter_price; ?>"
-    data-category="<?php echo esc_attr($car_category_slug); ?>">
+    data-category="<?php echo esc_attr($car_category_slug); ?>"
+    data-drive="<?php echo esc_attr($drive_type); ?>">
     <h3 class="car-title"><?php echo get_the_title($id); ?></h3>
     <?php if ($type): ?>
         <p class="car-class"><?php echo $type ?></p>
@@ -93,10 +96,10 @@ $filter_price = $price ?: $discount_price;
         </div>
         <div class="price-container">
             <div class="price">
-                <p class="discount-price">€ <?php echo $price ?>/day</p>
-                <p class="old-price">€ <?php echo $discount_price ?>/<span class="gray-text">day</span></p>
+                <p class="discount-price">€ <?php echo $price ?>/dan</p>
+                <p class="old-price">€ <?php echo $discount_price ?>/<span class="gray-text">dan</span></p>
             </div>
-            <button class="btn-forza primary">Rent now</button>
+            <button class="btn-forza primary">Iznajmi</button>
         </div>
     </div>
 </a>

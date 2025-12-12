@@ -6,10 +6,11 @@ $cars_query = new WP_Query([
     'order'          => 'ASC',
 ]);
 ?>
-<section class="section-cars">
+<section class="section-cars animated left-to-right">
     <div class="container">
         <div class="section-cars--title">
-            <h2><?php post_type_archive_title(); ?></h2>
+            <!-- <?php post_type_archive_title(); ?> -->
+            <h2>Vozila</h2>
         </div>
         <div class="grid">
             <?php
@@ -24,7 +25,7 @@ $cars_query = new WP_Query([
             ?>
         </div>
         <div class="cars-actions">
-            <button id="loadMoreCars" style="border: none;" class="btn-forza primary">Show more</button>
+            <button id="loadMoreCars" style="border: none;" class="btn-forza primary">Prikaži Više</button>
         </div>
 
         <p class="no-results" style="display:none;">No cars match your filters.</p>

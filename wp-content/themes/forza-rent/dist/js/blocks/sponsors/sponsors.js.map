@@ -1,7 +1,7 @@
 {
   "version": 3,
   "sources": ["../blocks/sponsors/sponsors.js"],
-  "sourcesContent": ["// DOM content loaded event listener\r\ndocument.addEventListener('DOMContentLoaded', function() {\r\n\r\n});\r\n"],
-  "mappings": "MACA,SAAS,iBAAiB,mBAAoB,UAAW,CAEzD,CAAC",
-  "names": []
+  "sourcesContent": ["document.addEventListener(\"DOMContentLoaded\", function () {\r\n  const track = document.querySelector(\".track\");\r\n  if (!track) return;\r\n\r\n  const speed = 0.9;\r\n\r\n  const originalContent = track.innerHTML;\r\n  track.innerHTML += originalContent;\r\n\r\n  let position = 0;\r\n\r\n  const animate = () => {\r\n    position -= speed;\r\n\r\n    track.style.transform = `translateX(${position}px)`;\r\n\r\n    if (Math.abs(position) >= track.scrollWidth / 2) {\r\n      position = 0;\r\n    }\r\n\r\n    requestAnimationFrame(animate);\r\n  };\r\n\r\n  animate();\r\n});\r\n"],
+  "mappings": "MAAA,SAAS,iBAAiB,mBAAoB,UAAY,CACxD,IAAMA,EAAQ,SAAS,cAAc,QAAQ,EAC7C,GAAI,CAACA,EAAO,OAEZ,IAAMC,EAAQ,GAERC,EAAkBF,EAAM,UAC9BA,EAAM,WAAaE,EAEnB,IAAIC,EAAW,EAETC,EAAU,IAAM,CACpBD,GAAYF,EAEZD,EAAM,MAAM,UAAY,cAAcG,CAAQ,MAE1C,KAAK,IAAIA,CAAQ,GAAKH,EAAM,YAAc,IAC5CG,EAAW,GAGb,sBAAsBC,CAAO,CAC/B,EAEAA,EAAQ,CACV,CAAC",
+  "names": ["track", "speed", "originalContent", "position", "animate"]
 }

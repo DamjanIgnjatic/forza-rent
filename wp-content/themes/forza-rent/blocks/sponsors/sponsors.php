@@ -12,6 +12,7 @@
     include get_template_directory() . '/template-parts/base/block-helper.php';
     // Load values and assing defaults
     $sponsors = get_field("sponsors");
+    $title = get_field("title");
     ?>
     <section class="section sponsors-section-wrapper block <?php echo $className; ?>"
         <?php if ($bgUrl): ?>
@@ -26,26 +27,29 @@
         <?php endif; ?>>
         <div class="container">
             <div class="sponsors-section-wrapper--title">
-                <h2>Partners</h2>
+                <h2><?php echo $title ?></h2>
             </div>
 
-            <div class="sponsors-marquee">
+            <div class="sponsors-marquee animated top-to-bottom">
                 <div class="track">
                     <?php foreach ($sponsors as $row): ?>
                         <?php $img = $row['sponsor_image'] ?? null; ?>
+                        <?php $link = $row['link'] ?? null; ?>
                         <?php if ($img): ?>
-                            <div class="item">
+
+                            <a href="<?php echo esc_url($link["url"]) ?>" target="<?php echo esc_attr($link["target"]) ?>" class="item">
                                 <img src="<?php echo esc_url($img['url']); ?>" alt="">
-                            </div>
+                            </a>
                         <?php endif; ?>
                     <?php endforeach; ?>
 
                     <?php foreach ($sponsors as $row): ?>
                         <?php $img = $row['sponsor_image'] ?? null; ?>
+                        <?php $link = $row['link'] ?? null; ?>
                         <?php if ($img): ?>
-                            <div class="item">
+                            <a href="<?php echo esc_url($link["url"]) ?>" target="<?php echo esc_attr($link["target"]) ?>" class="item">
                                 <img src="<?php echo esc_url($img['url']); ?>" alt="">
-                            </div>
+                            </a>
                         <?php endif; ?>
                     <?php endforeach; ?>
                 </div>

@@ -17,28 +17,16 @@ body {
   .h1 {
     @include heading();
     margin-bottom: 2.6rem;
-    font-size: calc(36px + (100vw / 200));
-
-    @media only screen and (min-width: $lg) {
-      font-size: 3.6rem;
-    }
-
-    @media only screen and (min-width: $xl) {
-      font-size: 4.8rem;
-    }
+    font-size: 4.8rem;
   }
 
   h2,
   .h2 {
     @include heading();
-    font-size: calc(28px + (100vw / 200));
     line-height: 1.5;
     margin-bottom: 1.6rem;
     font-weight: 600;
-
-    @media only screen and (min-width: $lg) {
-      font-size: 3.2rem;
-    }
+    font-size: 3.2rem;
   }
 
   h3,
@@ -47,14 +35,7 @@ body {
     margin-top: 15px;
     margin-bottom: 25px;
     font-size: calc(20px + (100vw / 200));
-
-    @media only screen and (max-width: $md) {
-      font-size: 1.6rem;
-    }
-
-    @media only screen and (min-width: $lg) {
-      font-size: 2rem;
-    }
+    font-size: 2rem;
   }
 
   h4,

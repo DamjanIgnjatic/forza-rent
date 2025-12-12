@@ -26,7 +26,7 @@ $link           = get_permalink($id);
 $image = get_the_post_thumbnail_url($id, 'large');
 ?>
 
-<section class="section-single-hero">
+<section class="section-single-hero animated left-to-right">
     <div class="container">
         <div class="section-single-hero--box">
             <div class="car-gallery">
@@ -60,13 +60,13 @@ $image = get_the_post_thumbnail_url($id, 'large');
                     <div class="info-wrapper">
                         <?php if ($car_type): ?>
                             <div>
-                                <span>Car Type:</span>
+                                <span>Tip Vozila:</span>
                                 <p class="car-class"><?php echo $car_type ?></p>
                             </div>
                         <?php endif; ?>
                         <?php if ($capacity): ?>
                             <div>
-                                <span>Capacity:</span>
+                                <span>Kapacitet:</span>
                                 <p class="car-class"><?php echo $capacity ?></p>
                             </div>
                         <?php endif; ?>
@@ -75,14 +75,14 @@ $image = get_the_post_thumbnail_url($id, 'large');
                     <div class="info-wrapper">
                         <?php if ($gearbox): ?>
                             <div>
-                                <span>Gearbox:</span>
+                                <span>Menjač:</span>
                                 <p class="car-class"><?php echo $gearbox ?></p>
                             </div>
                         <?php endif; ?>
 
                         <?php if ($production_year): ?>
                             <div>
-                                <span>Production Year:</span>
+                                <span>Godina Proizvodnje:</span>
                                 <p class="car-class"><?php echo $production_year ?></p>
                             </div>
                         <?php endif; ?>
@@ -91,11 +91,11 @@ $image = get_the_post_thumbnail_url($id, 'large');
 
                 <div class="car-information--price">
                     <div>
-                        <p class="price-info">€<?php echo $price ?>/<span>day</span></p>
-                        <p class="price-discount">€<?php echo $discount_price ?></p>
+                        <p class="price-info">€<?php echo $price ?>/<span>dan</span></p>
+                        <p class="price-discount">€<?php echo $discount_price ?>/dan</p>
                     </div>
 
-                    <a class="btn-forza primary">Rent now</a>
+                    <a class="btn-forza primary">Iznajmi</a>
                 </div>
             </div>
 

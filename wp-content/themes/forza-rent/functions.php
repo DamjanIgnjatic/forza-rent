@@ -233,3 +233,38 @@ add_filter('gform_validation_2', function ($validation_result) {
 });
 
 add_filter('gform_allow_field_post_save', '__return_false');
+
+
+add_filter('gform_pre_render_2', 'gf_populate_cars');
+add_filter('gform_pre_validation_2', 'gf_populate_cars');
+add_filter('gform_pre_submission_filter_2', 'gf_populate_cars');
+add_filter('gform_admin_pre_render_2', 'gf_populate_cars');
+
+function gf_populate_cars($form)
+{
+
+    foreach ($form['fields'] as &$field) {
+
+        if ($field->type === 'select' && $field->allowsPrepopulate && $field->inputName === 'cars_list') {
+
+            $cars = get_posts([
+                'post_type' => 'cars',
+                'posts_per_page' => -1,
+                'post_status' => 'publish'
+            ]);
+
+            $choices = [];
+
+            foreach ($cars as $car) {
+                $choices[] = [
+                    'text'  => $car->post_title,
+                    'value' => $car->ID
+                ];
+            }
+
+            $field->choices = $choices;
+        }
+    }
+
+    return $form;
+}

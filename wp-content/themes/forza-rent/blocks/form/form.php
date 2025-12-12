@@ -15,7 +15,7 @@
     $title = get_field('title') ?: false;
     $form = get_field('form') ?: false;
     ?>
-    <section class="section form-section-wrapper block <?php echo $className; ?>">
+    <section class="section form-section-wrapper block animated left-to-right <?php echo $className; ?>">
         <div class="container">
             <div class="form-section-wrapper--title">
                 <h2><?php echo $title ?></h2>
