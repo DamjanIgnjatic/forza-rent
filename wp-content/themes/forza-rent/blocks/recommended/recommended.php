@@ -15,7 +15,7 @@
     $recommended_link = get_field("recommended_link", "option");
     ?>
 
-    <section class="section recommended-section-wrapper block <?php echo $className; ?>">
+    <section class="section recommended-section-wrapper block <?php echo $className; ?> animated top-to-bottom">
         <div class="container">
             <div class="section recommended-section-wrapper--title">
                 <?php if ($recommended_title) : ?>

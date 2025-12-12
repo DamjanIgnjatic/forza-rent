@@ -16,12 +16,6 @@
     $hero_left_description = get_field("hero_left_description");
     $hero_left_link = get_field("hero_left_link");
     $hero_left_background_image = get_field("hero_left_background_image");
-
-    // Hero fields - right
-    $hero_right_title = get_field("hero_right_title");
-    $hero_right_description = get_field("hero_right_description");
-    $hero_right_link = get_field("hero_right_link");
-    $hero_right_background_image = get_field("hero_right_background_image");
     ?>
     <section class="section section-hero hero-section-section-wrapper block"
         <?php if ($bgUrl): ?>
@@ -32,7 +26,7 @@
         data-mobile-image="<?php echo $mobileBgUrl; ?>"
         <?php endif; ?>>
         <div class="container">
-            <div>
+            <div class="animated top-to-bottom">
                 <?php if ($hero_left_title) : ?>
                     <h1><?php echo $hero_left_title ?></h1>
                 <?php endif; ?>

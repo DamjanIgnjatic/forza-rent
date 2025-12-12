@@ -79,7 +79,7 @@ strong {
 }
 
 ::-webkit-scrollbar-track {
-  background: $background;
+  background: $background-secondary;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -93,4 +93,53 @@ strong {
 
 html {
   font-size: 62.5%;
+
+  @media screen and (max-width: $sm) {
+    font-size: 54.6876%;
+  }
+}
+
+.animated {
+  opacity: 0;
+  transition: opacity 680ms ease-in-out, transform 680ms ease-in-out,
+    -webkit-transform 680ms ease-in-out;
+
+  &.left-to-right {
+    transform: translateX(-20vw);
+  }
+  &.right-to-left {
+    transform: translateX(20vw);
+  }
+  &.bottom-to-top {
+    transform: translateY(-20vw);
+  }
+  &.top-to-bottom {
+    transform: translateY(20vw);
+  }
+  &.in-view {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  &.fade-in {
+    opacity: 1;
+    &:not(.in-view) {
+      opacity: 0;
+      transition: opacity 350ms ease-in-out;
+    }
+  }
+}
+
+.booked-date {
+  background: #ff4d4d !important;
+  color: #fff !important;
+  position: relative;
+}
+
+.booked-date::after {
+  content: "✕";
+  position: absolute;
+  top: 2px;
+  right: 4px;
+  font-size: 12px;
 }

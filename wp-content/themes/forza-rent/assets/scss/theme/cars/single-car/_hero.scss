@@ -31,11 +31,14 @@
         justify-content: center;
         align-items: center;
         position: relative;
-        background-color: $background-secondary;
+        background: $background-secondary;
         margin-bottom: 2.4rem;
         border-radius: 1rem;
         height: 30rem;
         overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.04);
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5),
+          inset 0 1px 0 rgba(255, 255, 255, 0.05);
 
         img {
           width: 100%;
@@ -57,9 +60,12 @@
           img {
             width: 100%;
             object-fit: cover;
-            background-color: $background-secondary;
+            background: $background-secondary;
             border-radius: 1rem;
             height: 11.4rem;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5),
+              inset 0 1px 0 rgba(255, 255, 255, 0.05);
           }
 
           &.active {
@@ -72,11 +78,14 @@
 
     .car-information {
       width: 50%;
-      background-color: $background-secondary;
+      background: $background-secondary;
       border-radius: 1rem;
       padding: 2.4rem 2.4rem 3.2rem 2.4rem;
       display: flex;
       flex-direction: column;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
 
       &.discount {
         position: relative;
@@ -90,7 +99,7 @@
           text-align: center;
 
           color: $white;
-          background-color: $gray-900;
+          background-color: $primary;
           letter-spacing: 1px;
 
           padding: 0.6rem 0;

@@ -14,7 +14,7 @@
     // Load values and assing defaults
     $title = get_field('title') ?: false;
     ?>
-    <section class="section hero-global-section-wrapper block <?php echo $className; ?>"
+    <section class="section hero-global-section-wrapper block  <?php echo $className; ?>"
         <?php if ($bgUrl): ?>
         style="background-image: url('<?php echo $bgUrl; ?>');"
         data-desktop-image="<?php echo $bgUrl; ?>"
@@ -26,7 +26,7 @@
         id="<?php echo $sectionId; ?>"
         <?php endif; ?>>
         <div class="container">
-            <div class="services-title">
+            <div class="services-title animated left-to-right">
                 <h1><?php echo get_the_title() ?></h1>
             </div>
         </div>

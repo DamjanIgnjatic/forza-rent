@@ -122,9 +122,29 @@ class CustomPostTypes
             'rewrite'      => ['slug' => 'gearbox-type'],
         ];
 
+        // Drive type
+        $drive_labels = [
+            'name'          => __('Drive Type', 'forzarent'),
+            'singular_name' => __('Drive Type', 'forzarent'),
+            'search_items'  => __('Search Drive Types', 'forzarent'),
+            'all_items'     => __('All Drive Types', 'forzarent'),
+            'edit_item'     => __('Edit Drive Type', 'forzarent'),
+            'add_new_item'  => __('Add New drive Type', 'forzarent'),
+        ];
+
+        $drive_args = [
+            'labels'       => $drive_labels,
+            'hierarchical' => true,
+            'public'       => true,
+            'show_ui'      => true,
+            'show_in_rest' => true,
+            'rewrite'      => ['slug' => 'drive-type'],
+        ];
+
         // taxonomy: car-category, vezana za CPT: cars
         register_taxonomy('car-type', ['cars'],  $car_type_args);
         register_taxonomy('car-category', ['cars'], $car_category_args);
         register_taxonomy('gearbox-type', ['cars'],  $gearbox_args);
+        register_taxonomy('drive-type', ['cars'],  $drive_args);
     }
 }

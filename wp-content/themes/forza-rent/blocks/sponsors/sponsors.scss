@@ -32,7 +32,13 @@
     .track {
       display: flex;
       width: max-content;
-      animation: marquee 16s linear infinite;
+      gap: 4rem;
+      flex-wrap: nowrap;
+      white-space: nowrap;
+
+      @media screen and (max-width: $sm) {
+        gap: 2rem;
+      }
     }
 
     .item {
@@ -42,10 +48,14 @@
 
     img {
       display: block;
-      width: 25rem;
+      width: 100%;
       height: auto;
-      height: 9.2rem;
-      object-fit: cover;
+      height: 4rem;
+      object-fit: contain;
+
+      @media screen and (max-width: $sm) {
+        height: 3rem;
+      }
     }
   }
 }

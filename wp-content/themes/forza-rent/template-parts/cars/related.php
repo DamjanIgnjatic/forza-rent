@@ -34,13 +34,13 @@ $all_cars_link = get_post_type_archive_link('cars');
 ?>
 
 <?php if ($related_cars->have_posts()): ?>
-    <section class="section-related-cars">
+    <section class="section-related-cars animated left-to-right">
 
         <div class="container">
             <div class="section-related-cars--title">
-                <h2>Related vehicles</h2>
+                <h2>Slična Vozila</h2>
                 <a href="<?php echo esc_url($all_cars_link); ?>" class="view-all">
-                    View all
+                    Pogledaj Sve
                 </a>
             </div>
             <div class="section-related-cars--box">

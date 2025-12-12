@@ -5,8 +5,12 @@ document.addEventListener("DOMContentLoaded", function () {
   const categorySelect = document.getElementById("category");
   const yearSelect = document.getElementById("yearFilter");
   const gearboxSelect = document.getElementById("gearboxFilter");
+  const driveTypeSelect = document.getElementById("driveFilter");
   const priceRange = document.getElementById("priceRange");
   const priceLabel = document.querySelector(".price-label");
+
+  console.log(driveTypeSelect);
+  console.log(gearboxSelect);
 
   const hamburger = document.querySelector(".hamburger");
   const navItems = document.querySelectorAll(".theme-menu-content");
@@ -35,24 +39,15 @@ document.addEventListener("DOMContentLoaded", function () {
   let visibleCount = 12;
   let priceFilterActive = false;
 
-  function normalizeGearbox(value) {
-    const v = (value || "").toLowerCase().trim();
-
-    if (["auto", "automatic", "automat", "automatika"].includes(v)) {
-      return "automatic";
-    }
-    if (["manual", "man", "rucni", "ručni"].includes(v)) {
-      return "manual";
-    }
-    return v;
-  }
-
   function applyFilters(resetVisible = false) {
     if (resetVisible) visibleCount = 12;
 
     const selectedCategory = (categorySelect?.value || "").toLowerCase().trim();
     const selectedYear = (yearSelect?.value || "").trim();
-    const selectedGearbox = normalizeGearbox(gearboxSelect?.value || "");
+    const selectedGearbox = (gearboxSelect?.value || "").trim();
+    const selectedDriveType = (driveTypeSelect?.value || "").trim();
+    console.log(selectedGearbox);
+    console.log(selectedDriveType);
 
     const maxPrice =
       priceRange && priceRange.value !== ""
@@ -64,7 +59,10 @@ document.addEventListener("DOMContentLoaded", function () {
     cars.forEach(function (car) {
       const carCategory = (car.dataset.category || "").toLowerCase().trim();
       const carYear = (car.dataset.year || "").trim();
-      const carGearbox = normalizeGearbox(car.dataset.gearbox || "");
+      const carGearbox = (car.dataset.gearbox || "").trim();
+      const driveType = (car.dataset.drive || "").trim();
+
+      console.log(driveType);
 
       let carPrice = car.dataset.price || null;
       if (carPrice !== null) {
@@ -85,6 +83,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // GEARBOX filter
       if (selectedGearbox && carGearbox !== selectedGearbox) {
+        visible = false;
+      }
+
+      // DRIVETYPE filter
+      if (selectedDriveType && driveType !== selectedDriveType) {
         visible = false;
       }
 
@@ -124,7 +127,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const min = parseFloat(priceRange.min);
     const max = parseFloat(priceRange.max);
 
-    priceLabel.textContent = `Price: €${value}/day`;
+    priceLabel.textContent = `Cena: €${value}/dan`;
 
     let percent = ((value - min) / (max - min)) * 100;
     priceRange.style.setProperty("--val", percent);
@@ -143,6 +146,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (gearboxSelect) {
     gearboxSelect.addEventListener("change", () => applyFilters(true));
+  }
+
+  if (gearboxSelect) {
+    gearboxSelect.addEventListener("change", () => applyFilters(true));
+  }
+
+  if (driveTypeSelect) {
+    driveTypeSelect.addEventListener("change", () => applyFilters(true));
   }
 
   if (priceRange) {

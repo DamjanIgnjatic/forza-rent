@@ -1,8 +1,13 @@
 <?php
 $testimonials = get_field('testimonials_global', 'option');
+$testimonials_title = get_field('testimonials_title ', 'option');
 ?>
 <section class="section testimonials-section-wrapper">
     <div class="container">
+        <div class="testimonials-section-wrapper--title">
+            <h2><?php echo $testimonials_title ?></h2>
+        </div>
+
         <div class="testimonials-section-wrapper--box">
             <div class="testimonials-section-wrapper--box-items">
                 <?php

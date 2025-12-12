@@ -1,5 +1,5 @@
 		<!-- Footer -->
-		<footer class="footer light-content" role="contentinfo">
+		<footer class="section footer light-content" role="contentinfo">
 			<?php if (!is_page_template('templates/template-plain.php')): ?>
 				<?php if (function_exists('get_field') && function_exists('dynamic_sidebar')): ?>
 					<?php $footerSection = get_field('footer_section', 'option') ?: []; ?>
@@ -8,7 +8,7 @@
 							<?php if (is_array($columns) && !empty($columns)): ?>
 								<section class="footer-body-section">
 									<div class="container">
-										<div class="row footer-body pt-4">
+										<div class="footer-body">
 											<?php
 											$columnsCount = is_array($columns) ? count($columns) : 0;
 											?>
