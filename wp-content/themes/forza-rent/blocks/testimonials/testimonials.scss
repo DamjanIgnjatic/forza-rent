@@ -32,12 +32,14 @@
       }
 
       .testimonial {
-        height: 100%;
+        height: auto;
+        display: flex;
 
         @media screen and (max-width: 767px) {
           padding-left: 2.4rem;
           padding-right: 2.4rem;
         }
+
         .testimonial-wrapper {
           padding: 2.4rem;
           border-radius: 1.2rem;
@@ -45,6 +47,10 @@
           border: 1px solid rgba(255, 255, 255, 0.04);
           box-shadow: 0 2rem 3rem -1.5rem rgba(0, 0, 0, 0.5),
             inset 0 1px 0 rgba(255, 255, 255, 0.05);
+
+          display: flex;
+          flex-direction: column;
+          height: 100%;
 
           p {
             margin: 0;
@@ -61,6 +67,7 @@
 
           .user {
             font-weight: 600;
+            margin-top: auto;
           }
         }
       }
@@ -74,11 +81,6 @@
     gap: 1rem;
     margin-top: 2.6rem;
     .arrow {
-      // position: absolute;
-      // top: 50%;
-      // transform: translateY(-50%);
-      // z-index: 5;
-
       width: 5rem;
       height: 5rem;
       display: flex;
@@ -92,14 +94,6 @@
       &:hover {
         background-color: $primary-hover;
       }
-
-      // &.btn-prev {
-      //   left: -2.4rem;
-      // }
-
-      // &.btn-next {
-      //   right: -2.4rem;
-      // }
     }
   }
 }
