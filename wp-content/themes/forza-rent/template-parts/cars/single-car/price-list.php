@@ -5,7 +5,7 @@ $id  = $car->ID;
 $price_list = get_field('price_list', $id);
 ?>
 <?php if (!empty($price_list)) : ?>
-    <section class="section-price-list animated right-to-left">
+    <section class="section-price-list animated top-to-bottom">
         <div class="container">
 
             <div class="section-price-list--title">

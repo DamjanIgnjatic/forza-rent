@@ -32,9 +32,10 @@
         align-items: center;
         position: relative;
         background: $background-secondary;
-        margin-bottom: 2.4rem;
+        // margin-bottom: 2.4rem; for gallery
         border-radius: 1rem;
-        height: 30rem;
+        // height: 30rem; for gallery
+        height: 100%; // without gallery
         overflow: hidden;
         border: 1px solid rgba(255, 255, 255, 0.04);
         box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5),
@@ -51,6 +52,7 @@
         display: flex;
         justify-content: space-between;
         gap: 1.6rem;
+        display: none;
 
         .item {
           width: 100%;
@@ -186,7 +188,8 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-top: auto;
+        margin-top: 3.4rem;
+
         p {
           margin: 0;
         }

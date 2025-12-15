@@ -26,7 +26,7 @@
         id="<?php echo $sectionId; ?>"
         <?php endif; ?>>
         <div class="container">
-            <div class="services-title animated left-to-right">
+            <div class="services-title animated top-to-bottom">
                 <h1><?php echo get_the_title() ?></h1>
             </div>
         </div>

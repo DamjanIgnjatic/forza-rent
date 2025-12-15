@@ -26,7 +26,8 @@ class Scripts
 
             // Remove jQuery
             // \add_action('wp_enqueue_scripts', [$this, 'removejQuery']);
-            \add_action('wp_default_scripts', [$this, 'dequeuejQueryMigrate']);
+            // \add_action('wp_default_scripts', [$this, 'dequeuejQueryMigrate']);
+
         }
     }
 
@@ -51,6 +52,8 @@ class Scripts
             // Dynamic modals
             \wp_register_script('dynamic-modals-script', \get_template_directory_uri() . '/dist/js/dynamic-modals.js', [], ASSETS_VERSION);
             \wp_enqueue_script('dynamic-modals-script');
+
+            wp_enqueue_script('slick-slider', "//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js", array('jquery'), '1.1', true);
         }
     }
 

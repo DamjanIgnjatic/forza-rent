@@ -34,10 +34,16 @@ $filter_price = $price ?: $discount_price;
     data-price="<?php echo $filter_price; ?>"
     data-category="<?php echo esc_attr($car_category_slug); ?>"
     data-drive="<?php echo esc_attr($drive_type); ?>">
-    <h3 class="car-title"><?php echo get_the_title($id); ?></h3>
-    <?php if ($type): ?>
-        <p class="car-class"><?php echo $type ?></p>
+
+    <?php if (get_the_title($id)) : ?>
+        <div class="car-card--title">
+            <h3 class="car-title"><?php echo get_the_title($id); ?></h3>
+            <?php if ($type): ?>
+                <p class="car-class"><?php echo $type ?></p>
+            <?php endif; ?>
+        </div>
     <?php endif; ?>
+
 
     <div class="car-details">
         <?php if ($image): ?>
@@ -97,7 +103,9 @@ $filter_price = $price ?: $discount_price;
         <div class="price-container">
             <div class="price">
                 <p class="discount-price">€ <?php echo $price ?>/dan</p>
-                <p class="old-price">€ <?php echo $discount_price ?>/<span class="gray-text">dan</span></p>
+                <?php if ($discount_price) : ?>
+                    <p class="old-price">€ <?php echo $discount_price ?>/<span class="gray-text">dan</span></p>
+                <?php endif; ?>
             </div>
             <button class="btn-forza primary">Iznajmi</button>
         </div>

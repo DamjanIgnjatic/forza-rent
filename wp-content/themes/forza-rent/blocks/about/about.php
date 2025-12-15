@@ -17,7 +17,7 @@
     $link = get_field("link");
     $image = get_field("image");
     ?>
-    <section class="section about-section-wrapper block <?php echo $className; ?> animated right-to-left"
+    <section class="section about-section-wrapper block <?php echo $className; ?> animated top-to-bottom"
         <?php if ($bgUrl): ?>
         style="background-image: url('<?php echo $bgUrl; ?>');"
         data-desktop-image="<?php echo $bgUrl; ?>"

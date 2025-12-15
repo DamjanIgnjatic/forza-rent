@@ -14,7 +14,7 @@
     $sponsors = get_field("sponsors");
     $title = get_field("title");
     ?>
-    <section class="section sponsors-section-wrapper block <?php echo $className; ?>"
+    <section class="section sponsors-section-wrapper animated top-to-bottom block <?php echo $className; ?>"
         <?php if ($bgUrl): ?>
         style="background-image: url('<?php echo $bgUrl; ?>');"
         data-desktop-image="<?php echo $bgUrl; ?>"
@@ -30,7 +30,7 @@
                 <h2><?php echo $title ?></h2>
             </div>
 
-            <div class="sponsors-marquee animated top-to-bottom">
+            <div class="sponsors-marquee">
                 <div class="track">
                     <?php foreach ($sponsors as $row): ?>
                         <?php $img = $row['sponsor_image'] ?? null; ?>

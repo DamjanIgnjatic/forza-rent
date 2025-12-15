@@ -6,7 +6,7 @@ $cars_query = new WP_Query([
     'order'          => 'ASC',
 ]);
 ?>
-<section class="section-cars animated left-to-right">
+<section class="section-cars animated top-to-bottom">
     <div class="container">
         <div class="section-cars--title">
             <!-- <?php post_type_archive_title(); ?> -->

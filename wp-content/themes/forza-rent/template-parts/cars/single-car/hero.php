@@ -8,8 +8,9 @@ $gear_terms = wp_get_post_terms($id, 'gearbox-type');
 $car_type_terms = wp_get_post_terms($id, 'car-type');
 $car_category_terms = wp_get_post_terms($id, 'car-model');
 
+
 // Taxonomy values
-$production_year  = 2020;
+
 $gearbox    = $gear_terms ? $gear_terms[0]->name : null;
 $car_type       = $car_type_terms ? $car_type_terms[0]->name : null;
 
@@ -20,13 +21,14 @@ $discount_price = get_field('discount_price', $id);
 $car_gallery = get_field('car_gallery', $id);
 $discount_price = get_field('discount_price', $id);
 $car_description = get_field('car_description', $id);
+$production_year  = get_field('production_year', $id);;
 
 // links and images
 $link           = get_permalink($id);
 $image = get_the_post_thumbnail_url($id, 'large');
 ?>
 
-<section class="section-single-hero animated left-to-right">
+<section class="section-single-hero animated top-to-bottom">
     <div class="container">
         <div class="section-single-hero--box">
             <div class="car-gallery">

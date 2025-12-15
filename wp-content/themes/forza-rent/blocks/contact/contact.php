@@ -15,7 +15,7 @@
     $title = get_field('title') ?: false;
     $contact_information = get_field('contact_information') ?: false;
     ?>
-    <section class="section contact-section-wrapper block animated right-to-left <?php echo $className; ?>">
+    <section class="section contact-section-wrapper block animated top-to-bottom <?php echo $className; ?>">
         <div class="container">
             <div class="contact-section-wrapper--title">
                 <h2><?php echo $title ?></h2>

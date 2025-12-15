@@ -4,7 +4,7 @@ $faq = get_field('faq_global', 'option') ?: false;
 $count = 0;
 $title = get_field("title", 'option');
 ?>
-<section class="section faq-section-wrapper animated left-to-right">
+<section class="section faq-section-wrapper animated top-to-bottom">
     <div class="container">
         <div class="faq-section-wrapper--title">
             <h2><?php echo $title ?></h2>

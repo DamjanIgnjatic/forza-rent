@@ -1,7 +1,7 @@
 {
   "version": 3,
   "sources": ["../blocks/hero-section/hero-section.js"],
-  "sourcesContent": ["// DOM content loaded event listener\r\ndocument.addEventListener('DOMContentLoaded', function() {\r\n\r\n});\r\n"],
-  "mappings": "MACA,SAAS,iBAAiB,mBAAoB,UAAW,CAEzD,CAAC",
-  "names": []
+  "sourcesContent": ["// DOM content loaded event listener\r\ndocument.addEventListener(\"DOMContentLoaded\", function () {});\r\n\r\ndocument.addEventListener(\"submit\", function (e) {\r\n  const form = e.target;\r\n\r\n  if (form.classList.contains(\"gform\")) {\r\n    return; // dozvoli GF\r\n  }\r\n\r\n  e.preventDefault();\r\n});\r\n"],
+  "mappings": "MACA,SAAS,iBAAiB,mBAAoB,UAAY,CAAC,CAAC,EAE5D,SAAS,iBAAiB,SAAU,SAAUA,EAAG,CAClCA,EAAE,OAEN,UAAU,SAAS,OAAO,GAInCA,EAAE,eAAe,CACnB,CAAC",
+  "names": ["e"]
 }

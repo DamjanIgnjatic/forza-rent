@@ -11,14 +11,13 @@ let _this = (module.exports = {
   },
 
   onSectionInView(selector, callback, options = {}) {
-    console.log("test");
     const elements = document.querySelectorAll(selector);
     if (!elements.length) return;
 
     const observerOptions = {
       root: null, // viewport
-      threshold: 0, // pokreće čim se dotakne
-      rootMargin: "0px 0px -200px 0px", // pokreće ~200px ranije
+      threshold: 0,
+      rootMargin: "0px 0px -20% 0px",
       ...options,
     };
 
@@ -46,7 +45,6 @@ let _this = (module.exports = {
 
       if (!el.classList.contains(className)) {
         el.classList.add(className);
-        console.log("Test");
       }
     });
   },

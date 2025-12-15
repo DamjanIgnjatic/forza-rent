@@ -39,7 +39,7 @@ foreach ($all_cars->posts as $car_id) {
     }
 }
 ?>
-<section class="section-advanced-filter animated right-to-left">
+<section class="section-advanced-filter animated top-to-bottom">
     <div class="container">
         <div class="section-advanced-filter--title">
             <h2>Filtriraj Vozila</h2>
@@ -99,10 +99,10 @@ foreach ($all_cars->posts as $car_id) {
                     <div class="price-slider">
                         <input type="range"
                             id="priceRange"
-                            min="<?php echo esc_attr($min_price); ?>"
+                            min="0"
                             max="<?php echo esc_attr($max_price); ?>"
                             step="10"
-                            value="<?php echo esc_attr($min_price); ?>" />
+                            value="0" />
                         <span class="price-label"
                             data-min="<?php echo $min_price; ?>"
                             data-max="<?php echo $max_price; ?>">Max: €<?php echo $max_price; ?></span>

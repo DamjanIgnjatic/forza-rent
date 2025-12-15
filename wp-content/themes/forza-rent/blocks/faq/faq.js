@@ -5,8 +5,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (!items.length) return;
 
-  console.log(items);
-
   items.forEach((item) => {
     item.addEventListener("click", function () {
       const isActive = item.classList.contains("active");

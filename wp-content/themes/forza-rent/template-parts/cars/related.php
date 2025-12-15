@@ -34,7 +34,7 @@ $all_cars_link = get_post_type_archive_link('cars');
 ?>
 
 <?php if ($related_cars->have_posts()): ?>
-    <section class="section-related-cars animated left-to-right">
+    <section class="section-related-cars animated top-to-bottom">
 
         <div class="container">
             <div class="section-related-cars--title">
