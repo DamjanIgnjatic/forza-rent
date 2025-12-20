@@ -94,7 +94,9 @@ $image = get_the_post_thumbnail_url($id, 'large');
                 <div class="car-information--price">
                     <div>
                         <p class="price-info">€<?php echo $price ?>/<span>dan</span></p>
-                        <p class="price-discount">€<?php echo $discount_price ?>/dan</p>
+                        <?php if ($discount_price) : ?>
+                            <p class="price-discount">€<?php echo $discount_price ?>/dan</p>
+                        <?php endif ?>
                     </div>
 
                     <a class="btn-forza primary">Iznajmi</a>

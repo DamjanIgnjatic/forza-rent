@@ -130,16 +130,12 @@ html {
   }
 }
 
-.booked-date {
-  background: #ff4d4d !important;
-  color: #fff !important;
-  position: relative;
+.flatpickr-day.flatpickr-disabled {
+  color: #999 !important;
+  text-decoration: line-through;
+  cursor: not-allowed;
 }
 
-.booked-date::after {
-  content: "✕";
-  position: absolute;
-  top: 2px;
-  right: 4px;
-  font-size: 12px;
+.form-control {
+  background-color: $white !important;
 }
