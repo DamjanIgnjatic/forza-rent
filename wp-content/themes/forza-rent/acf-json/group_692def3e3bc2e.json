@@ -21,7 +21,8 @@
             "allow_in_bindings": 0,
             "placeholder": "",
             "prepend": "",
-            "append": ""
+            "append": "",
+            "wpml_cf_preferences": 2
         }
     ],
     "location": [
@@ -30,13 +31,6 @@
                 "param": "block",
                 "operator": "==",
                 "value": "acf\/hero-global"
-            }
-        ],
-        [
-            {
-                "param": "post_type",
-                "operator": "==",
-                "value": "cars"
             }
         ]
     ],
@@ -50,5 +44,6 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1765321232
+    "acfml_field_group_mode": "translation",
+    "modified": 1766611889
 }

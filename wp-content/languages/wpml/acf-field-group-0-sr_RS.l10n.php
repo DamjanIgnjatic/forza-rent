@@ -1,0 +1,2 @@
+<?php
+return ['messages'=>['Hero Left Background Image'=>'Hero Left Background Image','Hero Left Description'=>'Hero Left Description','Hero Left Link'=>'Hero Left Link','Hero Left Title'=>'Hero Left Title','field-0-label-756651821d5bfd22c66a73faffd0bf9e'=>'Hero Left Background Image','field-0-label-79efc26408cca20c26379a9b8080dcc1'=>'Hero Left Title','field-0-label-d7782639291344c70c6ab9b0607be74a'=>'Hero Left Link','field-0-label-e0ed2001511d3cba68ef51b5ccfbd6a4'=>'Hero Left Description']];

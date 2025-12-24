@@ -1,0 +1,2 @@
+<?php
+return ['items'=>['Block - about'=>['urls'=>[],'names'=>['group-53-title-96a8cabd54d74aead8e102c931abf15b'],'cmp'=>['WordPress',3]],'Title'=>['urls'=>[],'names'=>['field-55-label-b78a3223503896721cca1303f776159b'],'cmp'=>['WordPress',3]],'Description'=>['urls'=>[],'names'=>['field-56-label-b5a7adde1af5c87d7fd797b6245c2a39'],'cmp'=>['WordPress',3]],'Link'=>['urls'=>[],'names'=>['field-57-label-97e7c9a7d06eac006a28bf05467fcc8b'],'cmp'=>['WordPress',3]],'Image'=>['urls'=>[],'names'=>['field-59-label-be53a0541a6d36f6ecb879fa2c584b08'],'cmp'=>['WordPress',3]]]];
