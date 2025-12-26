@@ -11,6 +11,32 @@
     box.textContent = text;
   }
 
+  function calculateTotal(days, prices) {
+    // 30 / 31 – zakucano
+    if (days >= 30 && prices["30"]) {
+      return Math.round(prices["30"]);
+    }
+
+    // 21–29
+    if (days >= 21 && days <= 29 && prices["21"]) {
+      const perDay = prices["21"] / 21;
+      return Math.round(perDay * days);
+    }
+
+    // 14–20
+    if (days >= 14 && days <= 20 && prices["14"]) {
+      const perDay = prices["14"] / 14;
+      return Math.round(perDay * days);
+    }
+
+    // 2–13
+    if (days >= 2 && days <= 13 && prices["2_4"]) {
+      return prices["2_4"] * days;
+    }
+
+    return 0;
+  }
+
   function getDaysBetween(start, end) {
     const s = new Date(start);
     const e = new Date(end);
@@ -44,28 +70,20 @@
     }
 
     const days = getDaysBetween(start, end);
+
     if (days < 2) {
       box.textContent = "Vozilo morate iznajmiti na minimalni period od 2 dana";
       return;
     }
 
     if (days > 31) {
-      box.innerHTML = `<a href="tel:+381649222057" style="color:#c00;font-weight:500">Za period duži od Mesec Dana – kontaktirajte nas.</a>`;
+      box.innerHTML = `<a href="tel:+381649222057" style="color:#c00;font-weight:500">
+        Za period duži od mesec dana – kontaktirajte nas.
+      </a>`;
       return;
     }
 
-    const price = getPriceForDays(days, FR_BOOKING.prices);
-
-    if (!price) {
-      box.textContent = "";
-      return;
-    }
-
-    if (days >= 2 && days <= 13) {
-      total = price * days;
-    } else {
-      total = price;
-    }
+    total = calculateTotal(days, FR_BOOKING.prices);
 
     if (pickup === "custom") {
       total += 20;

@@ -119,9 +119,9 @@ let _this = (module.exports = {
       const max = parseFloat(priceRange.max);
 
       if (value === 0) {
-        priceLabel.textContent = `Do: €${max}/dan`;
+        priceLabel.textContent = `Max: €${max}/dan`;
       } else {
-        priceLabel.textContent = `Do: €${value}/dan`;
+        priceLabel.textContent = `Max: €${value}/dan`;
       }
 
       const percent = (value / max) * 100;
