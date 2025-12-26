@@ -62,13 +62,13 @@ $image = get_the_post_thumbnail_url($id, 'large');
                     <div class="info-wrapper">
                         <?php if ($car_type): ?>
                             <div>
-                                <span>Tip Vozila:</span>
+                                <span><?php echo esc_html__( 'Car Type', 'forzarent' ); ?>:</span>
                                 <p class="car-class"><?php echo $car_type ?></p>
                             </div>
                         <?php endif; ?>
                         <?php if ($capacity): ?>
                             <div>
-                                <span>Kapacitet:</span>
+                                <span><?php echo esc_html__( 'Capacity', 'forzarent' ); ?>:</span>
                                 <p class="car-class"><?php echo $capacity ?></p>
                             </div>
                         <?php endif; ?>
@@ -77,14 +77,14 @@ $image = get_the_post_thumbnail_url($id, 'large');
                     <div class="info-wrapper">
                         <?php if ($gearbox): ?>
                             <div>
-                                <span>Menjač:</span>
+                                <span><?php echo esc_html__( 'Gearbox', 'forzarent' ); ?>:</span>
                                 <p class="car-class"><?php echo $gearbox ?></p>
                             </div>
                         <?php endif; ?>
 
                         <?php if ($production_year): ?>
                             <div>
-                                <span>Godina Proizvodnje:</span>
+                                <span><?php echo esc_html__( 'Year', 'forzarent' ); ?>:</span>
                                 <p class="car-class"><?php echo $production_year ?></p>
                             </div>
                         <?php endif; ?>
@@ -93,13 +93,13 @@ $image = get_the_post_thumbnail_url($id, 'large');
 
                 <div class="car-information--price">
                     <div>
-                        <p class="price-info">€<?php echo $price ?>/<span>dan</span></p>
+                        <p class="price-info">€<?php echo $price ?>/<span><?php echo esc_html__( 'day', 'forzarent' ); ?></span></p>
                         <?php if ($discount_price) : ?>
-                            <p class="price-discount">€<?php echo $discount_price ?>/dan</p>
+                            <p class="price-discount">€<?php echo $discount_price ?>/<?php echo esc_html__( 'day', 'forzarent' ); ?></p>
                         <?php endif ?>
                     </div>
 
-                    <a class="btn-forza primary">Iznajmi</a>
+                    <a class="btn-forza primary"><?php echo esc_html__( 'Rent Now', 'forzarent' ); ?></a>
                 </div>
             </div>
 

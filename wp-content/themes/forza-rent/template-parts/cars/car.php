@@ -102,12 +102,12 @@ $filter_price = $price ?: $discount_price;
         </div>
         <div class="price-container">
             <div class="price">
-                <p class="discount-price">€ <?php echo $price ?>/dan</p>
+                <p class="discount-price">€ <?php echo $price ?>/<?php echo esc_html__( 'day', 'forzarent' ); ?></p>
                 <?php if ($discount_price) : ?>
-                    <p class="old-price">€ <?php echo $discount_price ?>/<span class="gray-text">dan</span></p>
+                    <p class="old-price">€ <?php echo $discount_price ?>/<span class="gray-text"><?php echo esc_html__( 'day', 'forzarent' ); ?></span></p>
                 <?php endif; ?>
             </div>
-            <button class="btn-forza primary">Iznajmi</button>
+            <button class="btn-forza primary"><?php echo esc_html__( 'Rent now', 'forzarent' ); ?></button>
         </div>
     </div>
 </a>

@@ -38,9 +38,9 @@ $all_cars_link = get_post_type_archive_link('cars');
 
         <div class="container">
             <div class="section-related-cars--title">
-                <h2>Slična Vozila</h2>
+                <h2><?php echo esc_html__( 'Similar Vehicles', 'forzarent' ); ?></h2>
                 <a href="<?php echo esc_url($all_cars_link); ?>" class="view-all">
-                    Pogledaj Sve
+                    <?php echo esc_html__( 'View All', 'forzarent' ); ?>
                 </a>
             </div>
             <div class="section-related-cars--box">

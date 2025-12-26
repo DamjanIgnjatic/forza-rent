@@ -10,7 +10,7 @@ $cars_query = new WP_Query([
     <div class="container">
         <div class="section-cars--title">
             <!-- <?php post_type_archive_title(); ?> -->
-            <h2>Vozila</h2>
+            <h2><?php echo esc_html__( 'Vehicles', 'forzarent' ); ?></h2>
         </div>
         <div class="grid">
             <?php
@@ -25,9 +25,9 @@ $cars_query = new WP_Query([
             ?>
         </div>
         <div class="cars-actions">
-            <button id="loadMoreCars" style="border: none;" class="btn-forza primary">Prikaži Više</button>
+            <button id="loadMoreCars" style="border: none;" class="btn-forza primary"><?php echo esc_html__( 'Show More', 'forzarent' ); ?></button>
         </div>
 
-        <p class="no-results" style="display:none;">No cars match your filters.</p>
+        <p class="no-results" style="display:none;"><?php echo esc_html__( 'No cars match your filters.', 'forzarent' ); ?></p>
     </div>
 </section>

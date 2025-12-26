@@ -23,7 +23,7 @@ $drive_type = get_terms([
 
 $min_price = PHP_INT_MAX;
 $max_price = 0;
-$start_year = 1990;
+$start_year = 2000;
 $current_year = date('Y');
 
 foreach ($all_cars->posts as $car_id) {
@@ -42,15 +42,15 @@ foreach ($all_cars->posts as $car_id) {
 <section class="section-advanced-filter animated top-to-bottom">
     <div class="container">
         <div class="section-advanced-filter--title">
-            <h2>Filtriraj Vozila</h2>
+            <h2><?php echo esc_html__( 'Filter Vehicles', 'forzarent' ); ?></h2>
         </div>
 
         <div class="advanced-filters section-advanced-filter--box">
             <div class="advanced-filters--filter">
                 <div class="filter-group">
-                    <label for="category">Kategorija</label>
+                    <label for="category"><?php echo esc_html__( 'Category', 'forzarent' ); ?></label>
                     <select id="category">
-                        <option value="">Sve</option>
+                        <option value=""><?php echo esc_html__( 'All', 'forzarent' ); ?></option>
                         <?php foreach ($car_categories as $category): ?>
                             <option value="<?php echo esc_attr($category->slug); ?>">
                                 <?php echo esc_html($category->name); ?>
@@ -60,9 +60,9 @@ foreach ($all_cars->posts as $car_id) {
                 </div>
 
                 <div class="filter-group">
-                    <label for="yearFilter">Godina Proizvodnje</label>
+                    <label for="yearFilter"><?php echo esc_html__( 'Year', 'forzarent' ); ?></label>
                     <select id="yearFilter">
-                        <option value="">Sve</option>
+                        <option value=""><?php echo esc_html__( 'All', 'forzarent' ); ?></option>
                         <?php
                         for ($y = $current_year; $y >= $start_year; $y--) : ?>
                             <option value="<?php echo $y; ?>"><?php echo $y; ?></option>
@@ -71,9 +71,9 @@ foreach ($all_cars->posts as $car_id) {
                 </div>
 
                 <div class="filter-group">
-                    <label for="gearboxFilter">Menjač</label>
+                    <label for="gearboxFilter"><?php echo esc_html__( 'Gearbox', 'forzarent' ); ?></label>
                     <select id="gearboxFilter">
-                        <option value="">Sve</option>
+                        <option value=""><?php echo esc_html__( 'All', 'forzarent' ); ?></option>
                         <?php foreach ($gearbox_type as $gearbox): ?>
                             <option value="<?php echo esc_attr($gearbox->slug); ?>">
                                 <?php echo esc_html($gearbox->name); ?>
@@ -83,9 +83,9 @@ foreach ($all_cars->posts as $car_id) {
                 </div>
 
                 <div class="filter-group">
-                    <label for="driveFilter">Pogon</label>
+                    <label for="driveFilter"><?php echo esc_html__( 'Drive', 'forzarent' ); ?></label>
                     <select id="driveFilter">
-                        <option value="">Sve</option>
+                        <option value=""><?php echo esc_html__( 'All', 'forzarent' ); ?></option>
                         <?php foreach ($drive_type as $type): ?>
                             <option value="<?php echo esc_attr($type->slug); ?>">
                                 <?php echo esc_html($type->name); ?>
@@ -95,7 +95,7 @@ foreach ($all_cars->posts as $car_id) {
                 </div>
 
                 <div class="filter-group price-group">
-                    <label for="priceRange">Cena</label>
+                    <label for="priceRange"><?php echo esc_html__( 'Price', 'forzarent' ); ?></label>
                     <div class="price-slider">
                         <input type="range"
                             id="priceRange"

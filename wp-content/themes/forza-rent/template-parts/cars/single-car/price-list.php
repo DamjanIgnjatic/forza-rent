@@ -9,18 +9,18 @@ $price_list = get_field('price_list', $id);
         <div class="container">
 
             <div class="section-price-list--title">
-                <h2>Cene</h2>
+                <h2><?php echo esc_html__( 'Pricing', 'forzarent' ); ?></h2>
             </div>
 
             <div class="section-price-list--table">
                 <table class="">
                     <tr class="days">
-                        <th>2–4 days</th>
-                        <th>5–7 days</th>
-                        <th>8–13 days</th>
-                        <th>2 Weeks</th>
-                        <th>3 Weeks</th>
-                        <th>Monthly</th>
+                        <th>2–4 <?php echo esc_html__( 'days', 'forzarent' ); ?></th>
+                        <th>5–7 <?php echo esc_html__( 'days', 'forzarent' ); ?></th>
+                        <th>8–13 <?php echo esc_html__( 'days', 'forzarent' ); ?></th>
+                        <th>2 <?php echo esc_html__( 'Weeks', 'forzarent' ); ?></th>
+                        <th>3 <?php echo esc_html__( 'Weeks', 'forzarent' ); ?></th>
+                        <th><?php echo esc_html__( 'Monthly', 'forzarent' ); ?></th>
                     </tr>
                     <tr class="prices">
                         <?php foreach ($price_list as $row): ?>

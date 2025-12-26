@@ -119,9 +119,9 @@ let _this = (module.exports = {
       const max = parseFloat(priceRange.max);
 
       if (value === 0) {
-        priceLabel.textContent = `Do: €${max}/dan`;
+        priceLabel.textContent = `Max: €${max}/<?php echo esc_html__( 'day', 'forzarent' ); ?>`;
       } else {
-        priceLabel.textContent = `Do: €${value}/dan`;
+        priceLabel.textContent = `Max: €${value}/<?php echo esc_html__( 'day', 'forzarent' ); ?>`;
       }
 
       const percent = (value / max) * 100;
