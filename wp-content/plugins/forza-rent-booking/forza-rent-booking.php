@@ -39,32 +39,31 @@ function fr_calculate_total_price(int $car_id, string $start, string $end): floa
     $days = (strtotime($end) - strtotime($start)) / DAY_IN_SECONDS + 1;
     $days = max(1, (int) $days);
 
+    // 30 / 31 – zakucano
     if ($days >= 30 && !empty($tiers['30'])) {
-        return $tiers['30'];
+        return (float) $tiers['30'];
     }
 
-    if ($days >= 21 && !empty($tiers['21'])) {
-        return $tiers['21'];
+    // 21–29
+    if ($days >= 21 && $days <= 29 && !empty($tiers['21'])) {
+        $per_day = (float) $tiers['21'] / 21;
+        return round($per_day * $days, 2);
     }
 
-    if ($days >= 14 && !empty($tiers['14'])) {
-        return $tiers['14'];
+    // 14–20
+    if ($days >= 14 && $days <= 20 && !empty($tiers['14'])) {
+        $per_day = (float) $tiers['14'] / 14;
+        return round($per_day * $days, 2);
     }
 
-    if ($days >= 8 && !empty($tiers['8_13'])) {
-        return $tiers['8_13'];
-    }
-
-    if ($days >= 5 && !empty($tiers['5_7'])) {
-        return $tiers['5_7'];
-    }
-
-    if ($days >= 2 && !empty($tiers['2_4'])) {
-        return $tiers['2_4'];
+    // 2–13
+    if ($days >= 2 && $days <= 13 && !empty($tiers['2_4'])) {
+        return (float) $tiers['2_4'] * $days;
     }
 
     return 0;
 }
+
 
 
 
@@ -122,6 +121,7 @@ final class FR_Booking_Plugin
             dropoff_location VARCHAR(50) NULL,
             dropoff_address VARCHAR(255) NULL,
             pickup_fee DECIMAL(10,2) NOT NULL DEFAULT 0,
+            total_price DECIMAL(10,2) NOT NULL DEFAULT 0,
             start_date DATE NOT NULL,
             end_date DATE NOT NULL,
             status VARCHAR(20) NOT NULL DEFAULT 'confirmed',
@@ -476,20 +476,28 @@ final class FR_Booking_Plugin
         $dropoff_location = sanitize_text_field((string) $req->get_param('dropoff_location'));
         $dropoff_address  = sanitize_text_field((string) $req->get_param('dropoff_address'));
 
+        $phone            = $phone ?: '';
+        $notes            = $notes ?: '';
+
+        $pickup_location  = $pickup_location ?: '';
+        $pickup_address   = $pickup_address ?: '';
+        $dropoff_location = $dropoff_location ?: '';
+        $dropoff_address  = $dropoff_address ?: '';
+
         $pickup_fee = 0;
 
-        if (in_array($pickup_location, ['center', 'airport'], true)) {
+        if ($pickup_location === 'custom') {
             $pickup_fee = 20;
         }
 
-        if ($pickup_location && $pickup_address === '') {
+        if ($pickup_location === 'custom' && $pickup_address === '') {
             return new WP_REST_Response([
                 'ok' => false,
                 'message' => 'Molimo unesite adresu za pickup.'
             ], 400);
         }
 
-        if ($dropoff_location && $dropoff_address === '') {
+        if ($dropoff_location === 'custom' && $dropoff_address === '') {
             return new WP_REST_Response([
                 'ok' => false,
                 'message' => 'Molimo unesite adresu za vraćanje.'
@@ -541,40 +549,43 @@ final class FR_Booking_Plugin
         $table = self::table_name();
         $now   = current_time('mysql');
 
-        $inserted = $wpdb->insert($table, [
-            'car_id'          => $car_id,
-            'customer_name'   => $full_name,
-            'customer_email'  => $email,
-            'customer_phone'  => $phone ?: null,
-            'start_date'      => $start,
-            'end_date'        => $end,
 
-            // NE PISE DOBRO U TABELU
-            // 'pickup_location'  => $pickup_location ?: null,
-            // 'pickup_address'   => $pickup_address ?: null,
-            // 'dropoff_location' => $dropoff_location ?: null,
-            // 'dropoff_address'  => $dropoff_address ?: null,
-            // 'pickup_fee'       => $pickup_fee,
-            'status'          => 'confirmed',
-            'notes'           => $notes ?: null,
-            'created_at'      => $now,
-            'updated_at'      => $now,
+        $inserted = $wpdb->insert($table, [
+            'car_id'           => $car_id,
+            'customer_name'    => $full_name,
+            'customer_email'   => $email,
+            'customer_phone'   => $phone,
+
+            'pickup_location'  => $pickup_location,
+            'pickup_address'   => $pickup_address,
+            'dropoff_location' => $dropoff_location,
+            'dropoff_address'  => $dropoff_address,
+            'pickup_fee'       => $pickup_fee,
+            'total_price'      => $total_price,
+
+            'start_date'       => $start,
+            'end_date'         => $end,
+            'status'           => 'confirmed',
+            'notes'            => $notes,
+            'created_at'       => $now,
+            'updated_at'       => $now,
         ], [
-            '%d', // car_id
-            '%s', // customer_name
-            '%s', // customer_email
-            '%s', // customer_phone
-            '%s', // start_date
-            '%s', // end_date
-            '%s', // pickup_location
-            '%s', // pickup_address
-            '%s', // dropoff_location
-            '%s', // dropoff_address
-            '%f', // pickup_fee
-            '%s', // status
-            '%s', // notes
-            '%s', // created_at
-            '%s', // updated_at
+            '%d',
+            '%s',
+            '%s',
+            '%s',
+            '%s',
+            '%s',
+            '%s',
+            '%s',
+            '%f',
+            '%f',
+            '%s',
+            '%s',
+            '%s',
+            '%s',
+            '%s',
+            '%s',
         ]);
 
         if (!$inserted) {
@@ -753,6 +764,7 @@ final class FR_Booking_Plugin
                         <th>ID</th>
                         <th>Vozilo</th>
                         <th>Period</th>
+                        <th>Cena</th>
                         <th>Klijent</th>
                         <th>Status</th>
                         <th>Kreirano</th>
@@ -779,6 +791,9 @@ final class FR_Booking_Plugin
                                     <div style="opacity:.75;font-size:12px;">Car ID: <?php echo (int) $car_id; ?></div>
                                 </td>
                                 <td><?php echo esc_html($r['start_date'] . ' → ' . $r['end_date']); ?></td>
+                                <td>
+                                    <b>€<?php echo number_format((float) $r['total_price'], 2); ?></b>
+                                </td>
                                 <td>
                                     <b><?php echo esc_html($r['customer_name']); ?></b><br>
                                     <?php echo esc_html($r['customer_email']); ?><br>
@@ -891,13 +906,7 @@ final class FR_Booking_Plugin
 
             if ($booking && !empty($booking['customer_email'])) {
                 $car_title = get_the_title((int) $booking['car_id']);
-                $total_price = fr_calculate_total_price(
-                    (int) $booking['car_id'],
-                    $booking['start_date'],
-                    $booking['end_date']
-                );
-
-                $total_price += (float) ($booking['pickup_fee'] ?? 0);
+                $total_price = (float) ($booking['total_price'] ?? 0);
 
 
                 if ($status === 'cancelled') {
@@ -907,6 +916,7 @@ final class FR_Booking_Plugin
                         "Nažalost, vaša rezervacija je OTKAZANA.\n\n" .
                         "Vozilo: {$car_title}\n" .
                         "Period: {$booking['start_date']} → {$booking['end_date']}\n\n" .
+                        "Ukupna cena: €" . number_format($total_price, 2) . "\n\n" .
                         "Za više informacija, slobodno nas kontaktirajte.\n\n" .
                         get_bloginfo('name');
 

@@ -89,11 +89,13 @@
         display: flex;
         margin: 0;
         gap: 2.2rem;
+        align-items: center;
 
         @media screen and (max-width: $lg) {
           flex-direction: column;
           justify-content: flex-end;
           gap: 0;
+          align-items: normal;
         }
 
         li {
