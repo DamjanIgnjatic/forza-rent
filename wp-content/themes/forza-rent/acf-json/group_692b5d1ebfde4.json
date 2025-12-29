@@ -18,7 +18,8 @@
             },
             "placement": "top",
             "endpoint": 0,
-            "selected": 0
+            "selected": 0,
+            "wpml_cf_preferences": 1
         },
         {
             "key": "field_69343f261dcf8",
@@ -81,7 +82,8 @@
             "ajax": 0,
             "placeholder": "",
             "create_options": 0,
-            "save_options": 0
+            "save_options": 0,
+            "wpml_cf_preferences": 1
         },
         {
             "key": "field_692b5d75fc488",
@@ -102,7 +104,8 @@
             "allow_in_bindings": 0,
             "placeholder": "",
             "prepend": "",
-            "append": ""
+            "append": "",
+            "wpml_cf_preferences": 2
         },
         {
             "key": "field_692b5db0fc48a",
@@ -123,7 +126,8 @@
             "allow_in_bindings": 0,
             "placeholder": "",
             "prepend": "",
-            "append": ""
+            "append": "",
+            "wpml_cf_preferences": 2
         },
         {
             "key": "field_692b5db7fc48b",
@@ -144,7 +148,8 @@
             "allow_in_bindings": 0,
             "placeholder": "",
             "prepend": "",
-            "append": ""
+            "append": "",
+            "wpml_cf_preferences": 2
         },
         {
             "key": "field_69334795c4283",
@@ -162,7 +167,8 @@
             },
             "placement": "top",
             "endpoint": 0,
-            "selected": 0
+            "selected": 0,
+            "wpml_cf_preferences": 1
         },
         {
             "key": "field_69334785c4282",
@@ -185,6 +191,7 @@
             "collapsed": "",
             "button_label": "Add Row",
             "rows_per_page": 20,
+            "wpml_cf_preferences": 1,
             "sub_fields": [
                 {
                     "key": "field_693347a1c4284",
@@ -211,6 +218,7 @@
                     "mime_types": "",
                     "allow_in_bindings": 0,
                     "preview_size": "medium",
+                    "wpml_cf_preferences": 1,
                     "parent_repeater": "field_69334785c4282"
                 }
             ]
@@ -231,7 +239,8 @@
             },
             "placement": "top",
             "endpoint": 0,
-            "selected": 0
+            "selected": 0,
+            "wpml_cf_preferences": 1
         },
         {
             "key": "field_693347b836434",
@@ -252,7 +261,8 @@
             "tabs": "all",
             "toolbar": "full",
             "media_upload": 1,
-            "delay": 0
+            "delay": 0,
+            "wpml_cf_preferences": 2
         },
         {
             "key": "field_69344ec2006fd",
@@ -270,7 +280,8 @@
             },
             "placement": "top",
             "endpoint": 0,
-            "selected": 0
+            "selected": 0,
+            "wpml_cf_preferences": 1
         },
         {
             "key": "field_69344ed1006fe",
@@ -293,6 +304,7 @@
             "collapsed": "",
             "button_label": "Add Row",
             "rows_per_page": 20,
+            "wpml_cf_preferences": 1,
             "sub_fields": [
                 {
                     "key": "field_69344f028805a",
@@ -314,9 +326,50 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
+                    "wpml_cf_preferences": 2,
                     "parent_repeater": "field_69344ed1006fe"
                 }
             ]
+        },
+        {
+            "key": "field_6952ae78c6079",
+            "label": "Reservation",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "wpml_cf_preferences": 1,
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_6952ae81c607a",
+            "label": "Reservation Form",
+            "name": "reservation_form",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "wpml_cf_preferences": 2,
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "default_value": "",
+            "delay": 0
         }
     ],
     "location": [
@@ -338,5 +391,6 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1765038720
+    "acfml_field_group_mode": "translation",
+    "modified": 1767026449
 }

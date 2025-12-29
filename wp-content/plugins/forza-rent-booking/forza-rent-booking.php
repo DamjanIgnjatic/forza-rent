@@ -207,7 +207,6 @@ final class FR_Booking_Plugin
 
         // Minimal styles (inline)
         $css = "
-                .frb-wrap{max-width:520px;padding:16px;border-radius:12px}
                 .frb-row{display:flex;gap:12px;flex-wrap:wrap}
                 .frb-field{display:flex;flex-direction:column;gap:6px;margin:10px 0;flex:1}
                 .frb-field input,.frb-field textarea{padding:10px;border-radius:10px;border:1px solid rgba(0,0,0,.2)}
