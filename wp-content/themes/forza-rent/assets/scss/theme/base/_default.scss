@@ -213,11 +213,10 @@ html {
 }
 
 .frb-wrap {
-  max-width: 520px;
+  max-width: 100%;
   padding: 20px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 14px;
-  background: #fff;
+  background: transparent;
 }
 
 /* Layout */
@@ -238,7 +237,7 @@ html {
 .frb-field label {
   font-size: 13px;
   font-weight: 500;
-  color: #333;
+  color: $text-secondary;
 }
 
 /* ✅ SVA POLJA – ISTI STIL */
@@ -260,7 +259,8 @@ html {
 /* Placeholder */
 .frb-field input::placeholder,
 .frb-field textarea::placeholder {
-  color: #999;
+  color: $text-primary;
+  font-weight: 500;
 }
 
 /* Focus */
@@ -294,26 +294,6 @@ html {
   margin-top: 14px;
 }
 
-.frb-btn {
-  padding: 12px 18px;
-  border-radius: 10px;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  font-size: 14px;
-  cursor: pointer;
-  background: #fff;
-  transition: background 0.2s ease, color 0.2s ease;
-}
-
-.frb-btn.primary {
-  background: #111;
-  color: #fff;
-  border-color: #111;
-}
-
-.frb-btn.primary:hover {
-  background: #000;
-}
-
 /* Messages */
 .frb-msg {
   margin-top: 12px;
@@ -336,4 +316,23 @@ html {
   opacity: 0.7;
   font-size: 12px;
   margin-top: 6px;
+}
+
+.section-reservation-form {
+  display: none;
+  &.show {
+    display: block;
+  }
+}
+
+.section-reservation-form--box {
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  background: $background-secondary;
+  padding: 2.4rem;
+  border-radius: 1.2rem;
+}
+
+button {
+  border: none;
 }

@@ -207,7 +207,7 @@ final class FR_Booking_Plugin
 
         // Minimal styles (inline)
         $css = "
-                .frb-wrap{max-width:520px;padding:16px;border:1px solid rgba(0,0,0,.1);border-radius:12px}
+                .frb-wrap{max-width:520px;padding:16px;border-radius:12px}
                 .frb-row{display:flex;gap:12px;flex-wrap:wrap}
                 .frb-field{display:flex;flex-direction:column;gap:6px;margin:10px 0;flex:1}
                 .frb-field input,.frb-field textarea{padding:10px;border-radius:10px;border:1px solid rgba(0,0,0,.2)}
@@ -247,7 +247,7 @@ final class FR_Booking_Plugin
         ob_start();
 ?>
         <div class="frb-wrap" data-frb-car-id="<?php echo esc_attr($car_id); ?>">
-            <h3 style="margin:0 0 10px;"><?php echo $car_title; ?> — Rezervacija</h3>
+            <h3 class="frb-title" style="margin:0 0 10px;"><?php echo $car_title; ?> — Rezervacija</h3>
             <div class="frb-row">
                 <div class="frb-field">
                     <label for="customer_first_name">Ime</label>
@@ -344,7 +344,7 @@ final class FR_Booking_Plugin
             </div>
 
             <div class="frb-actions">
-                <button class="frb-btn primary" data-frb-action="book">Iznajmi</button>
+                <button class="btn-forza primary" data-frb-action="book">Iznajmi</button>
             </div>
 
             <div class="frb-msg" style="display:none"></div>

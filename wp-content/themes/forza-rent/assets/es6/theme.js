@@ -31,6 +31,10 @@ ImageGallery.init();
 const CarFilter = require("./components/car-filter");
 CarFilter.init();
 
+// Car Reservation
+const Reservation = require("./components/reservation");
+Reservation.init();
+
 // Contact form Validation Filter
 const ContactFormValidation = require("./components/contact-form-validation");
 ContactFormValidation.init();
