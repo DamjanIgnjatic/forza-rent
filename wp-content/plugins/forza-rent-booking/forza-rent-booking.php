@@ -865,9 +865,6 @@ final class FR_Booking_Plugin
         exit;
     }
 
-
-
-
     public function handle_admin_update_status(): void
     {
         if (!current_user_can(self::CAP)) wp_die('Forbidden');
