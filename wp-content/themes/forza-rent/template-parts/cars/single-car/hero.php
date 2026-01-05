@@ -109,12 +109,13 @@ $reservation_form = get_field('reservation_form', $id);
 
                 <?php if (!$reservation_form) : ?>
                     <div>
-                        <p>
+                        <!-- OTKOMENTARISATI KADA SE FORMA ZAVRSI -->
+                        <!-- <p>
                             <?php echo esc_html__(
                                 'This vehicle is available exclusively for long-term rental. Please contact us for more information.',
                                 'forzarent'
                             ); ?>
-                        </p>
+                        </p> -->
 
                         <a href="tel:+381649222057" class="btn-forza primary">
                             <?php echo esc_html__('Call', 'forzarent'); ?>

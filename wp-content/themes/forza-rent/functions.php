@@ -252,7 +252,8 @@ function gf_populate_cars($form)
             $cars = get_posts([
                 'post_type' => 'cars',
                 'posts_per_page' => -1,
-                'post_status' => 'publish'
+                'post_status' => 'publish',
+                'suppress_filters' => false
             ]);
 
             $choices = [];
